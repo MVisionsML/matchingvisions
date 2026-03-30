@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Samantha Mathey — Portfolio | MatchingVisions.ai</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo">Matching<span>Visions</span>.ai</div>
+    <div class="nav-links">
+      <a href="../index.html" class="nav-link">← Portfolio</a>
+      <a href="../casino-reviews.html" class="nav-link">Casino Reviews</a>
+      <a href="https://matchingvisions.com" target="_blank" rel="nofollow" class="nav-link">matchingvisions.com</a>
+      <a href="mailto:sam@matchingvisions.com" class="nav-btn">Contact Sam</a>
+    </div>
+  </div>
+</nav>
+
+<div class="portfolio-hero">
+  <div style="max-width:1200px;margin:0 auto;padding:0 40px">
+    <a href="../index.html" class="back-link">← Back to Portfolio</a>
+    <div class="manager-profile">
+      <img class="manager-photo" src="https://matchingvisions.com/wp-content/uploads/2024/12/sam.jpg" alt="Samantha Mathey">
+      <div class="manager-info">
+        <div class="manager-name">Samantha Mathey</div>
+        <div class="manager-role">Affiliate Manager</div>
+        <div class="manager-tags">
+          <span class="manager-tag">UK</span><span class="manager-tag">CA</span><span class="manager-tag">AU</span>
+          <span class="manager-tag">NZ</span><span class="manager-tag">IE</span><span class="manager-tag">SE</span>
+          <span class="manager-tag">SEO</span><span class="manager-tag">PPC</span><span class="manager-tag">Social</span>
+        </div>
+      </div>
+      <div class="manager-contact">
+        <a href="mailto:sam@matchingvisions.com" class="btn-gold">✉ Email Sam</a>
+        <div class="manager-email">sam@matchingvisions.com</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section" style="padding-top:36px">
+  <div class="section-inner">
+    <div class="tabs-row">
+      <button class="tab-btn active" onclick="switchTab('seo',this)">SEO Sources</button>
+      <button class="tab-btn" onclick="switchTab('ppc',this)">PPC Sources</button>
+      <button class="tab-btn" onclick="switchTab('other',this)">Other Sources</button>
+    </div>
+    <div class="tab-content active" id="tab-seo">
+      <div style="background:var(--indigo-900);border:1px solid var(--border-dark);border-radius:var(--radius-lg);padding:48px;text-align:center">
+        <div style="font-size:36px;margin-bottom:16px">📋</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;color:var(--white);margin-bottom:8px">Portfolio being added</div>
+        <div style="font-size:14px;color:var(--muted);margin-bottom:24px">Contact Sam directly for her full source list, GEOs, and deal conditions.</div>
+        <a href="mailto:sam@matchingvisions.com" class="btn-gold">✉ Email Sam</a>
+      </div>
+    </div>
+    <div class="tab-content" id="tab-ppc">
+      <div style="background:var(--indigo-900);border:1px solid var(--border-dark);border-radius:var(--radius-lg);padding:48px;text-align:center">
+        <div style="font-size:36px;margin-bottom:16px">📋</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;color:var(--white);margin-bottom:8px">Portfolio being added</div>
+        <div style="font-size:14px;color:var(--muted);margin-bottom:24px">Contact Sam for her PPC source list and rates.</div>
+        <a href="mailto:sam@matchingvisions.com" class="btn-gold">✉ Email Sam</a>
+      </div>
+    </div>
+    <div class="tab-content" id="tab-other">
+      <div style="background:var(--indigo-900);border:1px solid var(--border-dark);border-radius:var(--radius-lg);padding:48px;text-align:center">
+        <div style="font-size:36px;margin-bottom:16px">📋</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;color:var(--white);margin-bottom:8px">Portfolio being added</div>
+        <div style="font-size:14px;color:var(--muted);margin-bottom:24px">Contact Sam for other traffic sources.</div>
+        <a href="mailto:sam@matchingvisions.com" class="btn-gold">✉ Email Sam</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-bottom" style="border-top:none;padding-top:0">
+      <div class="footer-logo-txt">Matching<span>Visions</span>.ai</div>
+      <div class="footer-disclaimer">© 2026 MatchingVisions.ai · Confidential Portfolio · Malta</div>
+    </div>
+  </div>
+</footer>
+
+<div class="pw-overlay" id="pw-overlay">
+  <div class="pw-box">
+    <div class="pw-title">Matching<span style="color:var(--gold-2)">Visions</span>.ai</div>
+    <div style="font-size:14px;color:var(--muted);margin-bottom:6px">Samantha Mathey — Portfolio</div>
+    <div class="pw-sub">Operators only. Enter the password provided by Sam.</div>
+    <div class="pw-label">Password</div>
+    <input class="pw-input" type="password" id="pw-input" placeholder="••••••••" onkeydown="if(event.key==='Enter')checkPw()">
+    <div class="pw-error" id="pw-error">Incorrect password.</div>
+    <button class="pw-btn" onclick="checkPw()">Access Portfolio</button>
+    <div class="pw-hint">Contact <a href="mailto:sam@matchingvisions.com">sam@matchingvisions.com</a> to request access.</div>
+  </div>
+</div>
+
+<script>
+const PW='sam2026',SK='mv-sam-auth';
+function checkPw(){
+  if(document.getElementById('pw-input').value===PW){
+    document.getElementById('pw-overlay').classList.add('hidden');
+    sessionStorage.setItem(SK,'1');
+  } else {
+    document.getElementById('pw-error').style.display='block';
+    document.getElementById('pw-input').value='';
+  }
+}
+if(sessionStorage.getItem(SK)==='1') document.getElementById('pw-overlay').classList.add('hidden');
+function switchTab(t,btn){
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.tab-content').forEach(c=>c.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('tab-'+t).classList.add('active');
+}
+</script>
+</body>
+</html>
