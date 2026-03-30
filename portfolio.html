@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MatchingVisions — Affiliate Portfolio</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700;800&display=swap');
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --blue:#1A3FA6;--blue-2:#1D4ED8;--blue-3:#2563EB;--blue-light:#EFF6FF;
+  --pearl:#FAFAF8;--pearl-2:#F4F2ED;--border:#E8E4DD;
+  --ink:#1C1917;--ink-2:#44403C;--muted:#78716C;
+  --white:#FFFFFF;--green:#16A34A;--green-light:#F0FDF4;
+  --gold:#D97706;--gold-light:#FFFBEB;--red:#DC2626;
+  --radius:12px;--shadow:0 1px 4px rgba(0,0,0,0.08);--shadow-md:0 4px 16px rgba(0,0,0,0.12);
+}
+body{font-family:'Inter',sans-serif;background:var(--pearl);color:var(--ink);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+
+/* PASSWORD SCREEN */
+#password-screen{position:fixed;inset:0;background:linear-gradient(135deg,#0F2878 0%,#1A3FA6 50%,#2563EB 100%);z-index:9999;display:flex;align-items:center;justify-content:center;padding:24px}
+#password-screen.hidden{display:none}
+.pw-box{background:white;border-radius:20px;padding:48px 40px;max-width:440px;width:100%;text-align:center;box-shadow:0 24px 64px rgba(0,0,0,0.3)}
+.pw-logo{font-family:'Playfair Display',serif;font-size:24px;font-weight:800;color:var(--ink);margin-bottom:8px}
+.pw-logo span{color:var(--blue-3)}
+.pw-subtitle{font-size:13px;color:var(--muted);margin-bottom:32px}
+.pw-label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-bottom:8px;text-align:left}
+.pw-input{width:100%;background:var(--pearl);border:1.5px solid var(--border);border-radius:10px;padding:13px 16px;font-size:15px;font-family:'Inter',sans-serif;color:var(--ink);outline:none;transition:border-color 0.2s;margin-bottom:14px}
+.pw-input:focus{border-color:var(--blue-3)}
+.pw-btn{width:100%;background:var(--blue-3);color:white;border:none;font-family:'Inter',sans-serif;font-size:14px;font-weight:700;padding:14px;border-radius:10px;cursor:pointer;transition:background 0.2s;margin-bottom:12px}
+.pw-btn:hover{background:var(--blue-2)}
+.pw-error{font-size:13px;color:var(--red);display:none;margin-top:-8px;margin-bottom:8px}
+.pw-hint{font-size:11px;color:var(--muted)}
+
+/* NAV */
+nav{background:rgba(26,63,166,0.97);backdrop-filter:blur(12px);position:sticky;top:0;z-index:100;padding:0 32px;border-bottom:1px solid rgba(255,255,255,0.1)}
+.nav-inner{max-width:1200px;margin:0 auto;height:60px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:white}
+.nav-logo span{color:#93C5FD}
+.nav-right{display:flex;align-items:center;gap:20px}
+.nav-right a{font-size:13px;color:rgba(255,255,255,0.7);transition:color 0.2s}
+.nav-right a:hover{color:white}
+.nav-badge{background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.8);font-size:11px;font-weight:600;padding:4px 12px;border-radius:20px}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,#0F2878 0%,#1A3FA6 50%,#2563EB 100%);padding:48px 32px 40px}
+.hero-inner{max-width:1200px;margin:0 auto}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(28px,4vw,44px);font-weight:800;color:white;margin-bottom:10px}
+.hero p{font-size:15px;color:rgba(255,255,255,0.72);font-weight:300;max-width:560px;margin-bottom:28px}
+.hero-stats{display:flex;gap:32px;flex-wrap:wrap}
+.hero-stat{text-align:left}
+.hero-stat-num{font-family:'Playfair Display',serif;font-size:26px;font-weight:800;color:white;line-height:1}
+.hero-stat-label{font-size:11px;color:rgba(255,255,255,0.55);text-transform:uppercase;letter-spacing:1px;margin-top:2px}
+
+/* MAIN */
+.main{max-width:1200px;margin:0 auto;padding:40px 32px}
+
+/* MANAGER TABS */
+.manager-tabs{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:36px}
+.manager-tab{display:flex;align-items:center;gap:10px;background:white;border:1.5px solid var(--border);border-radius:var(--radius);padding:12px 18px;cursor:pointer;transition:all 0.2s;font-size:14px;font-weight:500;color:var(--ink-2)}
+.manager-tab:hover{border-color:#BFDBFE;box-shadow:var(--shadow)}
+.manager-tab.active{border-color:var(--blue-3);background:var(--blue-light);color:var(--blue-2)}
+.manager-tab img{width:36px;height:36px;border-radius:50%;object-fit:cover;border:2px solid var(--border);flex-shrink:0}
+.manager-tab.active img{border-color:#BFDBFE}
+.tab-info{}
+.tab-name{font-weight:600;font-size:14px;line-height:1.2}
+.tab-role{font-size:11px;color:var(--muted);font-weight:400}
+.manager-tab.active .tab-role{color:var(--blue-3)}
+
+/* MANAGER PANEL */
+.manager-panel{display:none}
+.manager-panel.active{display:block}
+
+/* MANAGER HEADER */
+.manager-header{background:white;border:1px solid var(--border);border-radius:var(--radius);padding:24px 28px;margin-bottom:28px;display:flex;align-items:center;gap:20px;box-shadow:var(--shadow)}
+.manager-header-photo{width:72px;height:72px;border-radius:50%;object-fit:cover;border:3px solid #BFDBFE;flex-shrink:0}
+.manager-header-info{flex:1}
+.manager-header-name{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--ink);margin-bottom:4px}
+.manager-header-role{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;color:var(--blue-3);margin-bottom:10px}
+.manager-header-tags{display:flex;flex-wrap:wrap;gap:6px}
+.manager-tag{font-size:11px;font-weight:600;background:var(--blue-light);color:var(--blue-2);border:1px solid #BFDBFE;padding:3px 10px;border-radius:4px}
+.manager-header-contact{display:flex;flex-direction:column;gap:8px;align-items:flex-end}
+.contact-btn{background:var(--blue-3);color:white;font-size:13px;font-weight:600;padding:10px 20px;border-radius:8px;transition:background 0.2s;white-space:nowrap}
+.contact-btn:hover{background:var(--blue-2)}
+.manager-email{font-size:12px;color:var(--muted)}
+
+/* GEO SECTION */
+.geo-section{margin-bottom:32px}
+.geo-header{display:flex;align-items:center;gap:12px;margin-bottom:16px;padding-bottom:12px;border-bottom:2px solid var(--blue-light)}
+.geo-flag{font-size:22px}
+.geo-title{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--ink)}
+.geo-count{font-size:12px;color:var(--muted);background:var(--pearl-2);border:1px solid var(--border);padding:3px 10px;border-radius:20px}
+
+/* SITE CARDS */
+.sites-grid{display:grid;gap:12px}
+.site-card{background:white;border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);transition:box-shadow 0.2s,border-color 0.2s}
+.site-card:hover{box-shadow:var(--shadow-md);border-color:#BFDBFE}
+.site-card-main{display:grid;grid-template-columns:1fr auto auto auto auto;gap:16px;align-items:center;padding:16px 20px}
+.site-url{font-weight:600;font-size:14px;color:var(--blue-3)}
+.site-url-sub{font-size:12px;color:var(--muted);margin-top:2px}
+.site-pill{font-size:11px;font-weight:600;padding:4px 10px;border-radius:4px;white-space:nowrap}
+.pill-geo{background:var(--blue-light);color:var(--blue-2);border:1px solid #BFDBFE}
+.pill-seo{background:var(--green-light);color:var(--green);border:1px solid #BBF7D0}
+.pill-ppc{background:var(--gold-light);color:var(--gold);border:1px solid #FDE68A}
+.pill-mixed{background:#F5F3FF;color:#6D28D9;border:1px solid #DDD6FE}
+.pill-native{background:#FFF1F2;color:#BE123C;border:1px solid #FECDD3}
+.site-deal{font-size:13px;font-weight:600;color:var(--ink);white-space:nowrap}
+.site-deal-sub{font-size:11px;color:var(--muted)}
+.details-btn{background:var(--blue-light);color:var(--blue-3);border:1px solid #BFDBFE;font-size:12px;font-weight:600;padding:8px 16px;border-radius:8px;cursor:pointer;transition:all 0.2s;white-space:nowrap;font-family:'Inter',sans-serif}
+.details-btn:hover{background:var(--blue-3);color:white;border-color:var(--blue-3)}
+.details-btn.open{background:var(--blue-3);color:white;border-color:var(--blue-3)}
+
+/* EXPANDABLE DETAILS */
+.site-details{display:none;border-top:1px solid var(--border);background:var(--pearl);padding:20px 20px 24px}
+.site-details.open{display:block}
+.details-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-bottom:16px}
+.detail-box{background:white;border:1px solid var(--border);border-radius:8px;padding:14px 16px}
+.detail-label{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;color:var(--muted);margin-bottom:4px}
+.detail-val{font-size:14px;font-weight:600;color:var(--ink)}
+.detail-note{font-size:12px;color:var(--muted);margin-top:2px}
+.conditions-box{background:white;border:1px solid var(--border);border-radius:8px;padding:14px 16px;margin-bottom:16px}
+.conditions-title{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;color:var(--muted);margin-bottom:8px}
+.conditions-text{font-size:13px;color:var(--ink-2);line-height:1.7}
+.details-cta{display:flex;gap:10px;flex-wrap:wrap}
+.detail-contact-btn{background:var(--blue-3);color:white;font-size:13px;font-weight:600;padding:10px 22px;border-radius:8px;transition:background 0.2s;display:inline-block}
+.detail-contact-btn:hover{background:var(--blue-2)}
+.detail-visit-btn{background:white;color:var(--ink-2);border:1px solid var(--border);font-size:13px;font-weight:500;padding:10px 18px;border-radius:8px;transition:border-color 0.2s;display:inline-block}
+.detail-visit-btn:hover{border-color:var(--blue-3);color:var(--blue-3)}
+
+/* COMING SOON */
+.coming-soon{background:white;border:1.5px dashed var(--border);border-radius:var(--radius);padding:48px;text-align:center;color:var(--muted)}
+.coming-soon-icon{font-size:36px;margin-bottom:12px}
+.coming-soon-title{font-size:16px;font-weight:600;color:var(--ink-2);margin-bottom:6px}
+.coming-soon-text{font-size:13px}
+
+/* FOOTER */
+footer{background:#0A1F5C;padding:24px 32px;margin-top:48px}
+.footer-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.footer-logo{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:white}
+.footer-logo span{color:#93C5FD}
+.footer-text{font-size:11px;color:rgba(255,255,255,0.35)}
+
+/* DETAIL MODAL */
+.detail-modal-overlay{position:fixed;inset:0;background:rgba(10,20,60,0.75);backdrop-filter:blur(4px);z-index:500;display:flex;align-items:center;justify-content:center;padding:24px;opacity:0;pointer-events:none;transition:opacity 0.3s}
+.detail-modal-overlay.open{opacity:1;pointer-events:all}
+.detail-modal{background:white;border-radius:16px;padding:36px;max-width:620px;width:100%;max-height:90vh;overflow-y:auto;box-shadow:0 24px 64px rgba(0,0,0,0.2);transform:translateY(20px);transition:transform 0.3s;position:relative}
+.detail-modal-overlay.open .detail-modal{transform:translateY(0)}
+.dm-close{position:absolute;top:16px;right:16px;background:var(--pearl);border:1px solid var(--border);border-radius:50%;width:32px;height:32px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:16px;color:var(--muted)}
+.dm-close:hover{background:var(--pearl-2)}
+.dm-site{font-size:12px;color:var(--muted);margin-bottom:4px}
+.dm-title{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--ink);margin-bottom:16px}
+.dm-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px}
+.dm-box{background:var(--pearl);border:1px solid var(--border);border-radius:8px;padding:14px 16px}
+.dm-label{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;color:var(--muted);margin-bottom:4px}
+.dm-val{font-size:14px;font-weight:600;color:var(--ink)}
+.dm-conditions{background:var(--pearl);border:1px solid var(--border);border-radius:8px;padding:16px;margin-bottom:20px}
+.dm-conditions h4{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;color:var(--muted);margin-bottom:10px}
+.dm-conditions p{font-size:13px;color:var(--ink-2);line-height:1.7}
+.dm-notes{background:var(--gold-light);border:1px solid #FDE68A;border-radius:8px;padding:14px 16px;margin-bottom:20px;font-size:13px;color:#92400E;line-height:1.6}
+.dm-cta{display:flex;gap:10px}
+.dm-btn-primary{background:var(--blue-3);color:white;font-size:13px;font-weight:600;padding:11px 24px;border-radius:8px;transition:background 0.2s;display:inline-block}
+.dm-btn-primary:hover{background:var(--blue-2)}
+.dm-btn-secondary{background:white;color:var(--ink-2);border:1px solid var(--border);font-size:13px;font-weight:500;padding:11px 18px;border-radius:8px;transition:border-color 0.2s;display:inline-block}
+.dm-btn-secondary:hover{border-color:var(--blue-3);color:var(--blue-3)}
+
+@media(max-width:768px){
+  .site-card-main{grid-template-columns:1fr;gap:10px}
+  .dm-grid{grid-template-columns:1fr}
+  .manager-header{flex-direction:column;text-align:center}
+  .manager-header-contact{align-items:center}
+}
+</style>
+</head>
+<body>
+
+<!-- PASSWORD SCREEN -->
+<div id="password-screen">
+  <div class="pw-box">
+    <div class="pw-logo">Matching<span>Visions</span>.ai</div>
+    <div class="pw-subtitle">Affiliate Portfolio — Operators Only</div>
+    <div class="pw-label">Enter Password</div>
+    <input class="pw-input" type="password" id="pw-input" placeholder="••••••••" onkeydown="if(event.key==='Enter')checkPw()">
+    <div class="pw-error" id="pw-error">Incorrect password. Please try again.</div>
+    <button class="pw-btn" onclick="checkPw()">Access Portfolio</button>
+    <div class="pw-hint">Contact <a href="mailto:info@matchingvisions.com" style="color:var(--blue-3)">info@matchingvisions.com</a> to request access.</div>
+  </div>
+</div>
+
+<!-- MAIN SITE (hidden until password) -->
+<div id="main-site" style="display:none">
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo">Matching<span>Visions</span>.ai <span class="nav-badge" style="margin-left:12px;font-size:10px">Portfolio</span></div>
+    <div class="nav-right">
+      <a href="/">← Main Site</a>
+      <a href="https://www.matchingvisions.com" target="_blank">matchingvisions.com</a>
+      <a href="mailto:info@matchingvisions.com" style="background:white;color:var(--blue);font-size:12px;font-weight:700;padding:8px 16px;border-radius:8px">Contact Us</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <h1>Affiliate Portfolio</h1>
+    <p>Select an affiliate manager below to browse their sites, GEOs, traffic sources, and deal conditions.</p>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="hero-stat-num">2,500+</div><div class="hero-stat-label">Affiliates</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">100+</div><div class="hero-stat-label">Brands</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">500+</div><div class="hero-stat-label">Campaigns</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">20+</div><div class="hero-stat-label">GEO Markets</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+  <!-- MANAGER TABS -->
+  <div class="manager-tabs">
+    <div class="manager-tab active" onclick="switchManager('nina')">
+      <img src="https://matchingvisions.com/wp-content/uploads/2024/01/nina.png" alt="Nina">
+      <div class="tab-info"><div class="tab-name">Nina Plut</div><div class="tab-role">Affiliate Manager</div></div>
+    </div>
+    <div class="manager-tab" onclick="switchManager('sam')">
+      <img src="https://matchingvisions.com/wp-content/uploads/2024/12/sam.jpg" alt="Sam">
+      <div class="tab-info"><div class="tab-name">Samantha Mathey</div><div class="tab-role">Affiliate Manager</div></div>
+    </div>
+    <div class="manager-tab" onclick="switchManager('eray')">
+      <img src="https://matchingvisions.com/wp-content/uploads/2021/05/eray.png" alt="Eray">
+      <div class="tab-info"><div class="tab-name">Eray Esen</div><div class="tab-role">Senior Affiliate Manager</div></div>
+    </div>
+    <div class="manager-tab" onclick="switchManager('dennis')">
+      <img src="https://matchingvisions.com/new_website/wp-content/uploads/2019/09/dennis_square1.jpg" alt="Dennis">
+      <div class="tab-info"><div class="tab-name">Dennis Dyhr-Hansen</div><div class="tab-role">Affiliate Director</div></div>
+    </div>
+  </div>
+
+  <!-- NINA PANEL -->
+  <div class="manager-panel active" id="panel-nina">
+
+    <div class="manager-header">
+      <img class="manager-header-photo" src="https://matchingvisions.com/wp-content/uploads/2024/01/nina.png" alt="Nina Plut">
+      <div class="manager-header-info">
+        <div class="manager-header-name">Nina Plut</div>
+        <div class="manager-header-role">Affiliate Manager</div>
+        <div class="manager-header-tags">
+          <span class="manager-tag">SEO</span>
+          <span class="manager-tag">PPC</span>
+          <span class="manager-tag">Finland</span>
+          <span class="manager-tag">Nordic</span>
+          <span class="manager-tag">DACH</span>
+          <span class="manager-tag">UK</span>
+          <span class="manager-tag">Canada</span>
+          <span class="manager-tag">Global</span>
+          <span class="manager-tag">Native Ads</span>
+          <span class="manager-tag">Streamers</span>
+        </div>
+      </div>
+      <div class="manager-header-contact">
+        <a href="mailto:nina@matchingvisions.com" class="contact-btn">✉ Email Nina</a>
+        <div class="manager-email">nina@matchingvisions.com</div>
+      </div>
+    </div>
+
+    <!-- FINLAND -->
+    <div class="geo-section">
+      <div class="geo-header">
+        <span class="geo-flag">🇫🇮</span>
+        <span class="geo-title">Finland</span>
+        <span class="geo-count">9 sources</span>
+      </div>
+      <div class="sites-grid">
+
+        <div class="site-card">
+          <div class="site-card-main">
+            <div>
+              <div class="site-url">suomenkielisetnettikasinot.com · pikakasinot.fi · nettikasinot.tv</div>
+              <div class="site-url-sub">3 premium Finnish casino sites — bundle</div>
+            </div>
+            <span class="site-pill pill-geo">FI</span>
+            <span class="site-pill pill-seo">SEO</span>
+            <div><div class="site-deal">250+30 / 300 CPA Hybrid</div><div class="site-deal-sub">+ listing fee for top 10</div></div>
+            <button class="details-btn" onclick="openDetail('nina-fi-1')">View Details</button>
+          </div>
+        </div>
+
+        <div class="site-card">
+          <div class="site-card-main">
+            <div><div class="site-url">bonusdiilit.com</div><div class="site-url-sub">Finnish bonus comparison</div></div>
+            <span class="site-pill pill-geo">FI</span>
+            <span class="site-pill pill-seo">SEO</span>
+            <div><div class="site-deal">100+50 Hybrid</div><div class="site-deal-sub">PayNPlay ONLY</div></div>
+            <button class="details-btn" onclick="openDetail('nina-fi-2')">View Details</button>
+          </div>
+        </div>
+
+        <div class="site-card">
+          <div class="site-card-main">
+            <div><div class="site-url">bonkku.com</div><div class="site-url-sub">Finnish casino reviews</div></div>
+            <span class="site-pill pill-geo">FI</span>
+            <span class="site-pill pill-seo">SEO</span>
+            <div><div class="site-deal">100+50 Hybrid</div><div class="site-deal-sub">+ testimonial · PayNPlay ONLY</div></div>
+            <button class="details-btn" onclick="openDetail('nina-fi-3')">View Details</button>
+          </div>
+        </div>
+
+        <div class="site-card">
+          <div class="site-card-main">
+            <div><div class="site-url">slottikuningas.net</div><div class="site-url-sub">Slot king — Finnish slots</div></div>
+            <span class="site-pill pill-geo">FI</span>
+            <span class="site-pill pill-seo">SEO</span>
+            <div><div class="site-deal">100+50 Hybrid</div><div class="site-deal-sub">PayNPlay ONLY</div></div>
+            <button class="details-btn" onclick="openDetail('nina-fi-4')">View Details</button>
+          </div>
+        </div>
+
+        <div class="site-card">
+          <div class="site-card-main">
+            <div><div class="site-url">kasinopelaajat.com</div><div class="site-url-sub">Finnish casino players</div></div>
+            <span class="site-pill pill-geo">FI</span>
+            <span class="site-pill pill-seo">SEO</span>
+            <div><div class="site-deal">100+50% Hybrid</div><div class="site-deal-sub">PayNPlay ONLY</div></div>
+            <button class="details-btn" onclick="openDetail('nina-fi-5')">View Details</button>
+          </div>
+        </div>
+
+        <div class="site-card">
+          <div class="site-card-main">
+            <div><div class="site-url">bonukset.net</div><div class="site-url-sub">Finnish bonuses</div></div>
+            <span class="site-pill pill-geo">FI</span>
+            <span class="site-pill pill-seo">SEO</span>
+            <div><div class="site-deal">180+50% Hybrid</div><div class="site-deal-sub">PayNPlay ONLY</div></div>
+            <button class="details-btn" onclick="openDetail('nina-fi-6')">View Details</button>
+          </div>
+        </div>
+
+        <div class="site-card">
+          <div class="site-card-main">
+            <div><div class="site-url">ottomati.com</div><div class="site-url-sub">Finnish casino site</div></div>
+            <span class="site-pill pill-geo">FI</span>
+            <span class="site-pill pill-seo">SEO</span>
+            <div><div class="site-deal">100+50% Hybrid</div><div class="site-deal-sub">PayNPlay ONLY</div></div>
+            <button class="details-btn" onclick="openDetail('nina-fi-7')">View Details</button>
+          </div>
+        </div>
+
+        <div class="site-card">
+          <div class="site-card-main">
+            <div><div class="site-url">mummorulla.com</div><div class="site-url-sub">Finnish casino site</div></div>
+            <span class="site-pill pill-geo">FI</span>
+            <span class="site-pill pill-seo">SEO</span>
+            <div><div class="site-deal">180+50% Hybrid</div><div class="site-deal-sub">PayNPlay ONLY</div></div>
+            <button class="details-btn" onclick="openDetail('nina-fi-8')">View Details</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- GAMBLING.COM NETWORK -->
+    <div class="geo-section">
+      <div class="geo-header">
+        <span class="geo-flag">🌍</span>
+        <span class="geo-title">Gambling.com Network</span>
+        <span class="geo-count">20+ GEOs</span>
+      </div>
+      <div class="sites-grid">
+
+        <div class="site-card">
+          <div class="site-card-main">
+            <div>
+              <div class="site-url">gambling.com</div>
+              <div class="site-url-sub">AU · AT · BE · BR · CA · DE · DK · GR · IN · IE · IT · MX · NL · NZ · NO · PE · RO · SE · UK · ES · FI · CA ONT</div>
+            </div>
+            <span class="site-pill pill-geo">20+ GEOs</span>
+            <span class="site-pill pill-seo">SEO</span>
+            <div><div class="site-deal">Deal Varies</div><div class="site-deal-sub">Per GEO negotiation</div></div>
+            <button class="details-btn" onclick="openDetail('nina-gambling')">View Details</button>
+          </div>
+        </div>
+
+        <div class="site-card">
+          <div class="site-card-main">
+            <div>
+              <div class="site-url">casinos.com</div>
+              <div class="site-url-sub">UK · CA · IE · NZ · IT</div>
+            </div>
+            <span class="site-pill pill-geo">UK·CA·IE·NZ·IT</span>
+            <span class="site-pill pill-seo">SEO</span>
+            <div><div class="site-deal">Deal Varies</div><div class="site-deal-sub">Per GEO negotiation</div></div>
+            <button class="details-btn" onclick="openDetail('nina-casinos')">View Details</button>
+          </div>
+        </div>
+
+        <div class="site-card">
+          <div class="site-card-main">
+            <div>
+              <div class="site-url">bookies.com</div>
+              <div class="site-url-sub">UK · IE · CA · IN · NZ · BR · MX · ES</div>
+            </div>
+            <span class="site-pill pill-geo">8 GEOs</span>
+            <span class="site-pill pill-seo">SEO</span>
+            <div><div class="site-deal">Deal Varies</div><div class="site-deal-sub">Sports focus</div></div>
+            <button class="details-btn" onclick="openDetail('nina-bookies')">View Details</button>
+          </div>
+        </div>
+
+        <div class="site-card">
+          <div class="site-card-main">
+            <div><div class="site-url">whichbingo.co.uk</div><div class="site-url-sub">UK Bingo specialist</div></div>
+            <span class="site-pill pill-geo">UK</span>
+            <span class="site-pill pill-seo">SEO</span>
+            <div><div class="site-deal">Deal Varies</div><div class="site-deal-sub">Bingo vertical</div></div>
+            <button class="details-btn" onclick="openDetail('nina-whichbingo')">View Details</button>
+          </div>
+        </div>
+
+        <div class="site-card">
+          <div class="site-card-main">
+            <div><div class="site-url">freebets.com</div><div class="site-url-sub">UK free bets</div></div>
+            <span class="site-pill pill-geo">UK</span>
+            <span class="site-pill pill-seo">SEO</span>
+            <div><div class="site-deal">Deal Varies</div><div class="site-deal-sub">Sports / betting</div></div>
+            <button class="details-btn" onclick="openDetail('nina-freebets')">View Details</button>
+          </div>
+        </div>
+
+        <div class="site-card">
+          <div class="site-card-main">
+            <div><div class="site-url">independent.co.uk</div><div class="site-url-sub">UK national media</div></div>
+            <span class="site-pill pill-geo">UK</span>
+            <span class="site-pill pill-mixed">Media</span>
+            <div><div class="site-deal">Deal Varies</div><div class="site-deal-sub">Editorial placement</div></div>
+            <button class="details-btn" onclick="openDetail('nina-independent')">View Details</button>
+          </div>
+        </div>
+
+        <div class="site-card">
+          <div class="site-card-main">
+            <div>
+              <div class="site-url">bonusfinder.co.uk / .ie / bonus.net.nz / bonus.ca</div>
+              <div class="site-url-sub">UK · IE · NZ · CA</div>
+            </div>
+            <span class="site-pill pill-geo">UK·IE·NZ·CA</span>
+            <span class="site-pill pill-seo">SEO</span>
+            <div><div class="site-deal">Deal Varies</div><div class="site-deal-sub">Per market</div></div>
+            <button class="details-btn" onclick="openDetail('nina-bonusfinder')">View Details</button>
+          </div>
+        </div>
+
+        <div class="site-card">
+          <div class="site-card-main">
+            <div><div class="site-url">ontariobets.com</div><div class="site-url-sub">Canada Ontario regulated</div></div>
+            <span class="site-pill pill-geo">CA ONT</span>
+            <span class="site-pill pill-seo">SEO</span>
+            <div><div class="site-deal">Deal Varies</div><div class="site-deal-sub">Regulated market</div></div>
+            <button class="details-btn" onclick="openDetail('nina-ontario')">View Details</button>
+          </div>
+        </div>
+
+        <div class="site-card">
+          <div class="site-card-main">
+            <div><div class="site-url">nettikasinot.com · vedonlyonti.com</div><div class="site-url-sub">Finnish casino & betting</div></div>
+            <span class="site-pill pill-geo">FI</span>
+            <span class="site-pill pill-seo">SEO</span>
+            <div><div class="site-deal">Deal Varies</div><div class="site-deal-sub">Finnish market</div></div>
+            <button class="details-btn" onclick="openDetail('nina-netti')">View Details</button>
+          </div>
+        </div>
+
+        <div class="site-card">
+          <div class="site-card-main">
+            <div><div class="site-url">svenskacasino.se</div><div class="site-url-sub">Swedish casino</div></div>
+            <span class="site-pill pill-geo">SE</span>
+            <span class="site-pill pill-seo">SEO</span>
+            <div><div class="site-deal">Deal Varies</div><div class="site-deal-sub">Swedish market</div></div>
+            <button class="details-btn" onclick="openDetail('nina-svenska')">View Details</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- GERMANY -->
+    <div class="geo-section">
+      <div class="geo-header">
+        <span class="geo-flag">🇩🇪</span>
+        <span class="geo-title">Germany</span>
+        <span class="geo-count">2 sources</span>
+      </div>
+      <div class="sites-grid">
+        <div class="site-card">
+          <div class="site-card-main">
+            <div><div class="site-url">shangetsgtv.net</div><div class="site-url-sub">German casino site</div></div>
+            <span class="site-pill pill-geo">DE</span>
+            <span class="site-pill pill-seo">SEO</span>
+            <div><div class="site-deal">Deal Varies</div><div class="site-deal-sub">Contact for details</div></div>
+            <button class="details-btn" onclick="openDetail('nina-de-1')">View Details</button>
+          </div>
+        </div>
+        <div class="site-card">
+          <div class="site-card-main">
+            <div><div class="site-url">gameoasis.de</div><div class="site-url-sub">German gaming oasis</div></div>
+            <span class="site-pill pill-geo">DE</span>
+            <span class="site-pill pill-seo">SEO</span>
+            <div><div class="site-deal">Deal Varies</div><div class="site-deal-sub">Contact for details</div></div>
+            <button class="details-btn" onclick="openDetail('nina-de-2')">View Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SWEDEN -->
+    <div class="geo-section">
+      <div class="geo-header">
+        <span class="geo-flag">🇸🇪</span>
+        <span class="geo-title">Sweden</span>
+        <span class="geo-count">1 source</span>
+      </div>
+      <div class="sites-grid">
+        <div class="site-card">
+          <div class="site-card-main">
+            <div><div class="site-url">gamblingcabin.se</div><div class="site-url-sub">Swedish gambling cabin</div></div>
+            <span class="site-pill pill-geo">SE</span>
+            <span class="site-pill pill-seo">SEO</span>
+            <div><div class="site-deal">150+50% Hybrid</div><div class="site-deal-sub">+ fixed fee for top spot</div></div>
+            <button class="details-btn" onclick="openDetail('nina-se-1')">View Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GAME PROVIDER -->
+    <div class="geo-section">
+      <div class="geo-header">
+        <span class="geo-flag">🎮</span>
+        <span class="geo-title">Game Provider Affiliation</span>
+        <span class="geo-count">1 source</span>
+      </div>
+      <div class="sites-grid">
+        <div class="site-card">
+          <div class="site-card-main">
+            <div><div class="site-url">bigtimegaming.com/casinos</div><div class="site-url-sub">ROW · UK · US · LATAM · Crypto · CA</div></div>
+            <span class="site-pill pill-geo">Multi-GEO</span>
+            <span class="site-pill pill-seo">SEO</span>
+            <div><div class="site-deal">150+50 Hybrid</div><div class="site-deal-sub">Multiple markets</div></div>
+            <button class="details-btn" onclick="openDetail('nina-btg')">View Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MULTI GEO -->
+    <div class="geo-section">
+      <div class="geo-header">
+        <span class="geo-flag">🌐</span>
+        <span class="geo-title">Multiple GEOs</span>
+        <span class="geo-count">CA · DE · NZ · AU · PL</span>
+      </div>
+      <div class="sites-grid">
+        <div class="site-card">
+          <div class="site-card-main">
+            <div><div class="site-url">slotscalendar.com · betbrain.com · betonvalue.com</div><div class="site-url-sub">CA · DE · NZ · AU · PL</div></div>
+            <span class="site-pill pill-geo">5 GEOs</span>
+            <span class="site-pill pill-mixed">Mixed</span>
+            <div><div class="site-deal">Various Deals</div><div class="site-deal-sub">Per market</div></div>
+            <button class="details-btn" onclick="openDetail('nina-multi')">View Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PPC PARTNERS -->
+    <div class="geo-section">
+      <div class="geo-header">
+        <span class="geo-flag">💰</span>
+        <span class="geo-title">PPC Partners</span>
+        <span class="geo-count">5 partners · 14+ GEOs</span>
+      </div>
+      <div class="sites-grid">
+        <div class="site-card">
+          <div class="site-card-main">
+            <div><div class="site-url">Partner 1 — Multi-GEO PPC</div><div class="site-url-sub">FI · HU · AT · CL · PL · NZ · DE · NL · NO · FR · SE · UK · CA · IE</div></div>
+            <span class="site-pill pill-geo">14 GEOs</span>
+            <span class="site-pill pill-ppc">PPC</span>
+            <div><div class="site-deal">CPA per GEO</div><div class="site-deal-sub">FI €350 · DE €650 · NL €800</div></div>
+            <button class="details-btn" onclick="openDetail('nina-ppc1')">View Details</button>
+          </div>
+        </div>
+        <div class="site-card">
+          <div class="site-card-main">
+            <div><div class="site-url">Partner 2</div><div class="site-url-sub">PR · CL · PL</div></div>
+            <span class="site-pill pill-geo">PR·CL·PL</span>
+            <span class="site-pill pill-ppc">PPC</span>
+            <div><div class="site-deal">Deal Varies</div><div class="site-deal-sub">Contact for rates</div></div>
+            <button class="details-btn" onclick="openDetail('nina-ppc2')">View Details</button>
+          </div>
+        </div>
+        <div class="site-card">
+          <div class="site-card-main">
+            <div><div class="site-url">Partner 3</div><div class="site-url-sub">UK · CA</div></div>
+            <span class="site-pill pill-geo">UK·CA</span>
+            <span class="site-pill pill-ppc">PPC</span>
+            <div><div class="site-deal">Deal Varies</div><div class="site-deal-sub">Contact for rates</div></div>
+            <button class="details-btn" onclick="openDetail('nina-ppc3')">View Details</button>
+          </div>
+        </div>
+        <div class="site-card">
+          <div class="site-card-main">
+            <div><div class="site-url">Partner 4</div><div class="site-url-sub">UK · EU · LATAM · GCC</div></div>
+            <span class="site-pill pill-geo">Multi</span>
+            <span class="site-pill pill-ppc">PPC</span>
+            <div><div class="site-deal">Deal Varies</div><div class="site-deal-sub">Contact for rates</div></div>
+            <button class="details-btn" onclick="openDetail('nina-ppc4')">View Details</button>
+          </div>
+        </div>
+        <div class="site-card">
+          <div class="site-card-main">
+            <div><div class="site-url">Partner 5</div><div class="site-url-sub">Denmark Regulated</div></div>
+            <span class="site-pill pill-geo">DK</span>
+            <span class="site-pill pill-ppc">PPC</span>
+            <div><div class="site-deal">Deal Varies</div><div class="site-deal-sub">Regulated market</div></div>
+            <button class="details-btn" onclick="openDetail('nina-ppc5')">View Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NATIVE / META / MEDIA -->
+    <div class="geo-section">
+      <div class="geo-header">
+        <span class="geo-flag">📢</span>
+        <span class="geo-title">Native Ads · Meta Ads · Media Buying</span>
+        <span class="geo-count">NZ · CA · FI</span>
+      </div>
+      <div class="sites-grid">
+        <div class="site-card">
+          <div class="site-card-main">
+            <div><div class="site-url">Push · Pop · Meta Ads</div><div class="site-url-sub">New Zealand · Canada</div></div>
+            <span class="site-pill pill-geo">NZ·CA</span>
+            <span class="site-pill pill-native">Native</span>
+            <div><div class="site-deal">Deal Varies</div><div class="site-deal-sub">Contact for rates</div></div>
+            <button class="details-btn" onclick="openDetail('nina-native1')">View Details</button>
+          </div>
+        </div>
+        <div class="site-card">
+          <div class="site-card-main">
+            <div><div class="site-url">Meta Ads — Finland</div><div class="site-url-sub">Finland</div></div>
+            <span class="site-pill pill-geo">FI</span>
+            <span class="site-pill pill-native">Meta</span>
+            <div><div class="site-deal">Deal Varies</div><div class="site-deal-sub">Contact for rates</div></div>
+            <button class="details-btn" onclick="openDetail('nina-native2')">View Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EMAIL / SMS -->
+    <div class="geo-section">
+      <div class="geo-header">
+        <span class="geo-flag">📧</span>
+        <span class="geo-title">Email & SMS</span>
+        <span class="geo-count">NL · NZ · FI</span>
+      </div>
+      <div class="sites-grid">
+        <div class="site-card">
+          <div class="site-card-main">
+            <div><div class="site-url">Email & SMS</div><div class="site-url-sub">Netherlands · New Zealand</div></div>
+            <span class="site-pill pill-geo">NL·NZ</span>
+            <span class="site-pill pill-mixed">Email/SMS</span>
+            <div><div class="site-deal">Deal Varies</div><div class="site-deal-sub">Contact for rates</div></div>
+            <button class="details-btn" onclick="openDetail('nina-email1')">View Details</button>
+          </div>
+        </div>
+        <div class="site-card">
+          <div class="site-card-main">
+            <div><div class="site-url">Email & SMS — Finland</div><div class="site-url-sub">Finland</div></div>
+            <span class="site-pill pill-geo">FI</span>
+            <span class="site-pill pill-mixed">Email/SMS</span>
+            <div><div class="site-deal">Deal Varies</div><div class="site-deal-sub">Contact for rates</div></div>
+            <button class="details-btn" onclick="openDetail('nina-email2')">View Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STREAMERS -->
+    <div class="geo-section">
+      <div class="geo-header">
+        <span class="geo-flag">🎮</span>
+        <span class="geo-title">Streamers</span>
+        <span class="geo-count">NL · PT</span>
+      </div>
+      <div class="sites-grid">
+        <div class="site-card">
+          <div class="site-card-main">
+            <div><div class="site-url">kriminel.twitch · Max</div><div class="site-url-sub">Netherlands Twitch streamers</div></div>
+            <span class="site-pill pill-geo">NL</span>
+            <span class="site-pill pill-mixed">Streamer</span>
+            <div><div class="site-deal">Deal Varies</div><div class="site-deal-sub">Contact for rates</div></div>
+            <button class="details-btn" onclick="openDetail('nina-stream1')">View Details</button>
+          </div>
+        </div>
+        <div class="site-card">
+          <div class="site-card-main">
+            <div><div class="site-url">Sergamer · Weira TV</div><div class="site-url-sub">Portugal streamers</div></div>
+            <span class="site-pill pill-geo">PT</span>
+            <span class="site-pill pill-mixed">Streamer</span>
+            <div><div class="site-deal">Deal Varies</div><div class="site-deal-sub">Contact for rates</div></div>
+            <button class="details-btn" onclick="openDetail('nina-stream2')">View Details</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end nina panel -->
+
+  <!-- SAM, ERAY, DENNIS PANELS (coming soon) -->
+  <div class="manager-panel" id="panel-sam">
+    <div class="manager-header">
+      <img class="manager-header-photo" src="https://matchingvisions.com/wp-content/uploads/2024/12/sam.jpg" alt="Sam">
+      <div class="manager-header-info">
+        <div class="manager-header-name">Samantha Mathey</div>
+        <div class="manager-header-role">Affiliate Manager</div>
+        <div class="manager-header-tags"><span class="manager-tag">UK</span><span class="manager-tag">CA</span><span class="manager-tag">AU</span><span class="manager-tag">NZ</span><span class="manager-tag">SEO</span><span class="manager-tag">PPC</span></div>
+      </div>
+      <div class="manager-header-contact">
+        <a href="mailto:sam@matchingvisions.com" class="contact-btn">✉ Email Sam</a>
+        <div class="manager-email">sam@matchingvisions.com</div>
+      </div>
+    </div>
+    <div class="coming-soon"><div class="coming-soon-icon">📋</div><div class="coming-soon-title">Portfolio being added</div><div class="coming-soon-text">Contact Sam directly for her full source list and deal conditions.</div></div>
+  </div>
+
+  <div class="manager-panel" id="panel-eray">
+    <div class="manager-header">
+      <img class="manager-header-photo" src="https://matchingvisions.com/wp-content/uploads/2021/05/eray.png" alt="Eray">
+      <div class="manager-header-info">
+        <div class="manager-header-name">Eray Esen</div>
+        <div class="manager-header-role">Senior Affiliate Manager</div>
+        <div class="manager-header-tags"><span class="manager-tag">DE</span><span class="manager-tag">AT</span><span class="manager-tag">CH</span><span class="manager-tag">PPC</span><span class="manager-tag">SEO</span></div>
+      </div>
+      <div class="manager-header-contact">
+        <a href="mailto:eray@matchingvisions.com" class="contact-btn">✉ Email Eray</a>
+        <div class="manager-email">eray@matchingvisions.com</div>
+      </div>
+    </div>
+    <div class="coming-soon"><div class="coming-soon-icon">📋</div><div class="coming-soon-title">Portfolio being added</div><div class="coming-soon-text">Contact Eray directly for his full source list and deal conditions.</div></div>
+  </div>
+
+  <div class="manager-panel" id="panel-dennis">
+    <div class="manager-header">
+      <img class="manager-header-photo" src="https://matchingvisions.com/new_website/wp-content/uploads/2019/09/dennis_square1.jpg" alt="Dennis">
+      <div class="manager-header-info">
+        <div class="manager-header-name">Dennis Dyhr-Hansen</div>
+        <div class="manager-header-role">Affiliate Director</div>
+        <div class="manager-header-tags"><span class="manager-tag">Global</span><span class="manager-tag">Strategy</span><span class="manager-tag">DACH</span><span class="manager-tag">Nordics</span></div>
+      </div>
+      <div class="manager-header-contact">
+        <a href="mailto:dennis@matchingvisions.com" class="contact-btn">✉ Email Dennis</a>
+        <div class="manager-email">dennis@matchingvisions.com</div>
+      </div>
+    </div>
+    <div class="coming-soon"><div class="coming-soon-icon">📋</div><div class="coming-soon-title">Portfolio being added</div><div class="coming-soon-text">Contact Dennis directly for strategic partnership discussions.</div></div>
+  </div>
+
+</div><!-- end main -->
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">Matching<span>Visions</span>.ai</div>
+    <div class="footer-text">© 2026 MatchingVisions · Confidential — Operators Only · Level 6, St. Julian's Business Centre, Malta</div>
+  </div>
+</footer>
+
+</div><!-- end main-site -->
+
+<!-- DETAIL MODAL -->
+<div class="detail-modal-overlay" id="detail-modal-overlay" onclick="closeDetailModal(event)">
+  <div class="detail-modal" id="detail-modal">
+    <div class="dm-close" onclick="closeDetailModalDirect()">✕</div>
+    <div class="dm-site" id="dm-site"></div>
+    <div class="dm-title" id="dm-title"></div>
+    <div class="dm-grid" id="dm-grid"></div>
+    <div class="dm-conditions" id="dm-conditions"></div>
+    <div class="dm-notes" id="dm-notes" style="display:none"></div>
+    <div class="dm-cta" id="dm-cta"></div>
+  </div>
+</div>
+
+<script>
+// PASSWORD
+const PASSWORD = 'mvportfolio2026';
+function checkPw() {
+  const val = document.getElementById('pw-input').value;
+  if (val === PASSWORD) {
+    document.getElementById('password-screen').classList.add('hidden');
+    document.getElementById('main-site').style.display = 'block';
+    sessionStorage.setItem('mv-auth','1');
+  } else {
+    document.getElementById('pw-error').style.display = 'block';
+    document.getElementById('pw-input').value = '';
+    document.getElementById('pw-input').focus();
+  }
+}
+if (sessionStorage.getItem('mv-auth') === '1') {
+  document.getElementById('password-screen').classList.add('hidden');
+  document.getElementById('main-site').style.display = 'block';
+}
+
+// MANAGER TABS
+function switchManager(key) {
+  document.querySelectorAll('.manager-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.manager-panel').forEach(p => p.classList.remove('active'));
+  event.currentTarget.classList.add('active');
+  document.getElementById('panel-' + key).classList.add('active');
+}
+
+// SITE DETAILS DATA
+const details = {
+  'nina-fi-1': {
+    site: 'suomenkielisetnettikasinot.com · pikakasinot.fi · nettikasinot.tv',
+    title: 'Premium Finnish Casino Bundle — 3 Sites',
+    geo: 'Finland (FI)', traffic: 'SEO — Organic', deal: '250+30 / 300 Pure CPA Hybrid',
+    volume: 'High — top Finnish casino sites', language: 'Finnish',
+    conditions: '250 CPA + 30% RevShare hybrid, OR flat 300 CPA. Listing fee required for top 10 spot placement. PayNPlay operators strongly preferred. No baseline, no self-exclusions, no duplicates.',
+    notes: 'Bundle of 3 premium Finnish-language casino sites. Top 10 listing fee is separate from the CPA deal — contact Nina for current pricing.',
+    email: 'nina@matchingvisions.com'
+  },
+  'nina-fi-2': {site:'bonusdiilit.com',title:'Bonusdiilit — Finnish Bonus Comparison',geo:'Finland (FI)',traffic:'SEO — Organic',deal:'100+50 Hybrid',volume:'Medium-High',language:'Finnish',conditions:'100 CPA + 50% RevShare hybrid. PayNPlay operators ONLY. No baseline, no self-exclusions, no duplicates.',notes:'',email:'nina@matchingvisions.com'},
+  'nina-fi-3': {site:'bonkku.com',title:'Bonkku — Finnish Casino Reviews',geo:'Finland (FI)',traffic:'SEO — Organic',deal:'100+50 Hybrid + Testimonial',volume:'Medium',language:'Finnish',conditions:'100 CPA + 50% RevShare hybrid. Includes a brand testimonial placement. PayNPlay operators ONLY. No baseline, no self-exclusions, no duplicates.',notes:'Testimonial placement included in the deal — good for brand trust in the Finnish market.',email:'nina@matchingvisions.com'},
+  'nina-fi-4': {site:'slottikuningas.net',title:'Slottikuningas — Finnish Slots King',geo:'Finland (FI)',traffic:'SEO — Organic',deal:'100+50 Hybrid',volume:'Medium',language:'Finnish',conditions:'100 CPA + 50% RevShare hybrid. PayNPlay operators ONLY. No baseline, no self-exclusions, no duplicates.',notes:'',email:'nina@matchingvisions.com'},
+  'nina-fi-5': {site:'kasinopelaajat.com',title:'Kasinopelaajat — Finnish Casino Players',geo:'Finland (FI)',traffic:'SEO — Organic',deal:'100+50% Hybrid',volume:'Medium',language:'Finnish',conditions:'100 CPA + 50% RevShare hybrid. PayNPlay operators ONLY. No baseline, no self-exclusions, no duplicates.',notes:'',email:'nina@matchingvisions.com'},
+  'nina-fi-6': {site:'bonukset.net',title:'Bonukset — Finnish Bonuses',geo:'Finland (FI)',traffic:'SEO — Organic',deal:'180+50% Hybrid',volume:'Medium-High',language:'Finnish',conditions:'180 CPA + 50% RevShare hybrid. PayNPlay operators ONLY. No baseline, no self-exclusions, no duplicates.',notes:'Higher CPA reflects strong conversion rates on this site.',email:'nina@matchingvisions.com'},
+  'nina-fi-7': {site:'ottomati.com',title:'Ottomati — Finnish Casino',geo:'Finland (FI)',traffic:'SEO — Organic',deal:'100+50% Hybrid',volume:'Medium',language:'Finnish',conditions:'100 CPA + 50% RevShare hybrid. PayNPlay operators ONLY. No baseline, no self-exclusions, no duplicates.',notes:'',email:'nina@matchingvisions.com'},
+  'nina-fi-8': {site:'mummorulla.com',title:'Mummorulla — Finnish Casino',geo:'Finland (FI)',traffic:'SEO — Organic',deal:'180+50% Hybrid',volume:'Medium',language:'Finnish',conditions:'180 CPA + 50% RevShare hybrid. PayNPlay operators ONLY. No baseline, no self-exclusions, no duplicates.',notes:'',email:'nina@matchingvisions.com'},
+  'nina-gambling': {site:'gambling.com',title:'Gambling.com — 20+ GEO Network',geo:'AU·AT·BE·BR·CA·DE·DK·GR·IN·IE·IT·MX·NL·NZ·NO·PE·RO·SE·UK·ES·FI·CA ONT',traffic:'SEO — Organic',deal:'Deal Varies per GEO',volume:'Very High — tier 1 global site',language:'Multiple',conditions:'Deal terms vary per GEO and vertical. Contact Nina to discuss specific market requirements and current availability.',notes:'One of the largest global casino affiliate networks. Covers licensed sports in AU only. Belgium available in Dutch and French.',email:'nina@matchingvisions.com'},
+  'nina-casinos': {site:'casinos.com',title:'Casinos.com — English-Speaking GEOs',geo:'UK · CA · IE · NZ · IT',traffic:'SEO — Organic',deal:'Deal Varies per GEO',volume:'High',language:'English / Italian',conditions:'Deal terms vary per GEO. Contact Nina for current CPA, RevShare, or hybrid options per market.',notes:'',email:'nina@matchingvisions.com'},
+  'nina-bookies': {site:'bookies.com',title:'Bookies.com — Sports Betting Focus',geo:'UK · IE · CA · IN · NZ · BR · MX · ES',traffic:'SEO — Organic',deal:'Deal Varies per GEO',volume:'High — sports vertical',language:'Multiple',conditions:'Sports betting focused. Deal terms vary per GEO. Contact Nina for rates.',notes:'Sports/sportsbook vertical primarily. Casino secondary.',email:'nina@matchingvisions.com'},
+  'nina-whichbingo': {site:'whichbingo.co.uk',title:'WhichBingo — UK Bingo Specialist',geo:'United Kingdom (UK)',traffic:'SEO — Organic',deal:'Deal Varies',volume:'High — UK bingo niche',language:'English',conditions:'Bingo vertical specialist. Contact Nina for current deal terms and availability.',notes:'Bingo-specific traffic — only relevant for brands with a bingo product.',email:'nina@matchingvisions.com'},
+  'nina-freebets': {site:'freebets.com',title:'FreeBets — UK Sports Betting',geo:'United Kingdom (UK)',traffic:'SEO — Organic',deal:'Deal Varies',volume:'High — UK sports',language:'English',conditions:'Sports betting / free bets focus. Contact Nina for current deal terms.',notes:'',email:'nina@matchingvisions.com'},
+  'nina-independent': {site:'independent.co.uk',title:'The Independent — UK National Media',geo:'United Kingdom (UK)',traffic:'Editorial / Media',deal:'Deal Varies',volume:'Very High — national media',language:'English',conditions:'Editorial placement in a major UK national publication. Premium placement. Contact Nina for pricing and availability.',notes:'National media placement — premium pricing applies. Ideal for brand visibility in the UK regulated market.',email:'nina@matchingvisions.com'},
+  'nina-bonusfinder': {site:'bonusfinder.co.uk / .ie / bonus.net.nz / bonus.ca',title:'BonusFinder — UK · IE · NZ · CA',geo:'UK · IE · NZ · CA',traffic:'SEO — Organic',deal:'Deal Varies per GEO',volume:'High',language:'English',conditions:'Deal terms vary per GEO. Contact Nina for current CPA, RevShare, or hybrid options per market.',notes:'',email:'nina@matchingvisions.com'},
+  'nina-ontario': {site:'ontariobets.com',title:'OntarioBets — Canada Ontario Regulated',geo:'Canada Ontario (CA ONT)',traffic:'SEO — Organic',deal:'Deal Varies',volume:'High — regulated market',language:'English',conditions:'Ontario regulated market only. Contact Nina for current terms. Must be iGO licensed to advertise in Ontario.',notes:'Ontario is a regulated market requiring iGaming Ontario (iGO) registration. Confirm licensing before proceeding.',email:'nina@matchingvisions.com'},
+  'nina-netti': {site:'nettikasinot.com · vedonlyonti.com',title:'Nettikasinot & Vedonlyonti — Finland',geo:'Finland (FI)',traffic:'SEO — Organic',deal:'Deal Varies',volume:'High',language:'Finnish',conditions:'Contact Nina for current deal terms and availability.',notes:'',email:'nina@matchingvisions.com'},
+  'nina-svenska': {site:'svenskacasino.se',title:'Svenska Casino — Sweden',geo:'Sweden (SE)',traffic:'SEO — Organic',deal:'Deal Varies',volume:'Medium-High',language:'Swedish',conditions:'Swedish market. Contact Nina for current deal terms.',notes:'',email:'nina@matchingvisions.com'},
+  'nina-de-1': {site:'shangetsgtv.net',title:'Shangetsgtv — German Casino',geo:'Germany (DE)',traffic:'SEO — Organic',deal:'Deal Varies',volume:'Medium',language:'German',conditions:'Contact Nina for current deal terms and availability.',notes:'',email:'nina@matchingvisions.com'},
+  'nina-de-2': {site:'gameoasis.de',title:'Game Oasis — German Market',geo:'Germany (DE)',traffic:'SEO — Organic',deal:'Deal Varies',volume:'Medium',language:'German',conditions:'Contact Nina for current deal terms and availability.',notes:'',email:'nina@matchingvisions.com'},
+  'nina-se-1': {site:'gamblingcabin.se',title:'Gambling Cabin — Sweden',geo:'Sweden (SE)',traffic:'SEO — Organic',deal:'150+50% Hybrid + Fixed Fee',volume:'Medium-High',language:'Swedish',conditions:'150 CPA + 50% RevShare hybrid. Additional fixed fee required for top spot placement. Contact Nina for current fixed fee pricing.',notes:'Top spot fixed fee is separate from the hybrid deal. Good value for premium Swedish placement.',email:'nina@matchingvisions.com'},
+  'nina-btg': {site:'bigtimegaming.com/casinos',title:'Big Time Gaming — Game Provider Affiliation',geo:'ROW · UK · US · LATAM · Crypto · CA',traffic:'SEO — Organic',deal:'150+50 Hybrid',volume:'High — provider-level traffic',language:'English',conditions:'150 CPA + 50% RevShare hybrid across ROW, UK, US, LATAM, Crypto, and CA markets. Game provider level affiliation.',notes:'Unique game provider affiliation opportunity. Traffic comes through Big Time Gaming\'s own casino directory.',email:'nina@matchingvisions.com'},
+  'nina-multi': {site:'slotscalendar.com · betbrain.com · betonvalue.com',title:'Multi-GEO Bundle — CA · DE · NZ · AU · PL',geo:'CA · DE · NZ · AU · PL',traffic:'Mixed',deal:'Various — per GEO',volume:'Medium per market',language:'Multiple',conditions:'Deal terms vary per site and per GEO. Contact Nina to discuss specific market requirements.',notes:'',email:'nina@matchingvisions.com'},
+  'nina-ppc1': {site:'Partner 1 — Multi-GEO PPC',title:'PPC Partner 1 — 14 GEO Rates',geo:'FI·HU·AT·CL·PL·NZ·DE·NL·NO·FR·SE·UK·CA·IE',traffic:'PPC — Paid Search',deal:'CPA per GEO',volume:'High volume PPC',language:'Multiple',conditions:'FI €350+40% · HU €250+40% · AT €450+30% · CL €150+30% · PL €320+30% · NZ €350+30% · DE €650+30% · NL €800+30% · NO €350+25% · FR €400+20% · SE €250+50% · UK €500+30% · CA €400+20% · IE €340+20%\n\nNo baseline. No self-exclusions. No duplicates.',notes:'⚠ PPC rules strictly enforced: No baseline bidding, no self-exclusion keywords, no duplicate traffic allowed.',email:'nina@matchingvisions.com'},
+  'nina-ppc2': {site:'Partner 2',title:'PPC Partner 2 — PR · CL · PL',geo:'Puerto Rico · Chile · Poland',traffic:'PPC — Paid Search',deal:'Deal Varies',volume:'Medium',language:'Multiple',conditions:'Deal terms vary. Contact Nina for current rates across PR, CL, and PL markets.\n\nNo baseline. No self-exclusions. No duplicates.',notes:'⚠ PPC rules strictly enforced: No baseline bidding, no self-exclusion keywords, no duplicate traffic.',email:'nina@matchingvisions.com'},
+  'nina-ppc3': {site:'Partner 3',title:'PPC Partner 3 — UK · CA',geo:'UK · Canada',traffic:'PPC — Paid Search',deal:'Deal Varies',volume:'High',language:'English',conditions:'Deal terms vary. Contact Nina for current rates for UK and Canada.\n\nNo baseline. No self-exclusions. No duplicates.',notes:'⚠ PPC rules strictly enforced.',email:'nina@matchingvisions.com'},
+  'nina-ppc4': {site:'Partner 4',title:'PPC Partner 4 — UK · EU · LATAM · GCC',geo:'UK · EU · LATAM · GCC',traffic:'PPC — Paid Search',deal:'Deal Varies',volume:'High — multi-region',language:'Multiple',conditions:'Deal terms vary per region. Contact Nina for current rates.\n\nNo baseline. No self-exclusions. No duplicates.',notes:'⚠ PPC rules strictly enforced.',email:'nina@matchingvisions.com'},
+  'nina-ppc5': {site:'Partner 5',title:'PPC Partner 5 — Denmark Regulated',geo:'Denmark (DK) — Regulated',traffic:'PPC — Paid Search',deal:'Deal Varies',volume:'Medium — regulated market',language:'Danish',conditions:'Denmark regulated market. Must hold Danish Spillemyndigheden license. Contact Nina for current rates.\n\nNo baseline. No self-exclusions. No duplicates.',notes:'⚠ Regulated market — Danish gaming license required. PPC rules strictly enforced.',email:'nina@matchingvisions.com'},
+  'nina-native1': {site:'Push · Pop · Meta Ads',title:'Push · Pop · Meta Ads — NZ · CA',geo:'New Zealand · Canada',traffic:'Native Ads / Media Buying',deal:'Deal Varies',volume:'High volume potential',language:'English',conditions:'Push ads, pop ads, and Meta (Facebook/Instagram) advertising across NZ and CA. Deal terms vary. Contact Nina for current rates and formats.',notes:'',email:'nina@matchingvisions.com'},
+  'nina-native2': {site:'Meta Ads — Finland',title:'Meta Ads — Finland',geo:'Finland (FI)',traffic:'Meta / Social Ads',deal:'Deal Varies',volume:'Medium',language:'Finnish',conditions:'Meta (Facebook/Instagram) advertising targeting Finnish players. Contact Nina for current deal terms.',notes:'',email:'nina@matchingvisions.com'},
+  'nina-email1': {site:'Email & SMS — NL · NZ',title:'Email & SMS — Netherlands · New Zealand',geo:'Netherlands · New Zealand',traffic:'Email / SMS',deal:'Deal Varies',volume:'Medium',language:'Dutch / English',conditions:'Email and SMS marketing campaigns targeting NL and NZ players. Contact Nina for list sizes, frequency, and deal terms.',notes:'',email:'nina@matchingvisions.com'},
+  'nina-email2': {site:'Email & SMS — Finland',title:'Email & SMS — Finland',geo:'Finland (FI)',traffic:'Email / SMS',deal:'Deal Varies',volume:'Medium',language:'Finnish',conditions:'Email and SMS marketing campaigns targeting Finnish players. Contact Nina for list sizes, frequency, and deal terms.',notes:'',email:'nina@matchingvisions.com'},
+  'nina-stream1': {site:'kriminel.twitch · Max',title:'NL Twitch Streamers — kriminel & Max',geo:'Netherlands (NL)',traffic:'Streaming / Twitch',deal:'Deal Varies',volume:'Medium — live audience',language:'Dutch',conditions:'Two Dutch-language Twitch casino streamers. Deal terms vary. Contact Nina for audience size, schedule, and rates.',notes:'Live streaming deals — rates based on viewer count and session frequency.',email:'nina@matchingvisions.com'},
+  'nina-stream2': {site:'Sergamer · Weira TV',title:'PT Streamers — Sergamer & Weira TV',geo:'Portugal (PT)',traffic:'Streaming',deal:'Deal Varies',volume:'Medium',language:'Portuguese',conditions:'Portuguese-language casino streamers. Deal terms vary. Contact Nina for audience size and rates.',notes:'',email:'nina@matchingvisions.com'},
+};
+
+function openDetail(key) {
+  const d = details[key];
+  if (!d) return;
+  document.getElementById('dm-site').textContent = d.site;
+  document.getElementById('dm-title').textContent = d.title;
+  document.getElementById('dm-grid').innerHTML = `
+    <div class="dm-box"><div class="dm-label">GEO / Market</div><div class="dm-val">${d.geo}</div></div>
+    <div class="dm-box"><div class="dm-label">Traffic Type</div><div class="dm-val">${d.traffic}</div></div>
+    <div class="dm-box"><div class="dm-label">Deal Structure</div><div class="dm-val">${d.deal}</div></div>
+    <div class="dm-box"><div class="dm-label">Volume</div><div class="dm-val">${d.volume}</div></div>
+  `;
+  document.getElementById('dm-conditions').innerHTML = `<h4>Conditions & Terms</h4><p>${d.conditions.replace(/\n/g,'<br>')}</p>`;
+  const notesEl = document.getElementById('dm-notes');
+  if (d.notes) { notesEl.textContent = '📌 ' + d.notes; notesEl.style.display = 'block'; }
+  else { notesEl.style.display = 'none'; }
+  document.getElementById('dm-cta').innerHTML = `
+    <a href="mailto:${d.email}?subject=Enquiry: ${encodeURIComponent(d.title)}" class="dm-btn-primary">✉ Contact Nina about this source</a>
+    <a href="https://www.matchingvisions.com/#contact" target="_blank" class="dm-btn-secondary">Contact via Main Site</a>
+  `;
+  document.getElementById('detail-modal-overlay').classList.add('open');
+  document.b
