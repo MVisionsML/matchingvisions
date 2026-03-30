@@ -5,165 +5,215 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MatchingVisions.ai — Elite iGaming Affiliate Network</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700;800&display=swap');
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root {
-    --pearl: #FAFAF8; --pearl-2: #F4F2ED; --pearl-3: #EAE6DF;
-    --ink: #1C1917; --ink-2: #44403C; --muted: #78716C;
-    --accent: #2563EB; --accent-2: #1D4ED8;
-    --green: #16A34A; --green-light: #F0FDF4;
-    --gold: #D97706; --gold-light: #FFFBEB;
-    --border: #E8E4DD; --white: #FFFFFF;
-    --radius: 12px;
-    --shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
-    --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
-  }
-  body { font-family: 'Inter', sans-serif; background: var(--pearl); color: var(--ink); font-size: 15px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
-  a { color: inherit; text-decoration: none; }
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700;800&display=swap');
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --blue:#1A3FA6;--blue-2:#1D4ED8;--blue-3:#2563EB;--blue-light:#EFF6FF;
+  --pearl:#FAFAF8;--pearl-2:#F4F2ED;--border:#E8E4DD;
+  --ink:#1C1917;--ink-2:#44403C;--muted:#78716C;
+  --white:#FFFFFF;--green:#16A34A;--green-light:#F0FDF4;
+  --gold:#D97706;--gold-light:#FFFBEB;
+  --radius:12px;--shadow:0 1px 3px rgba(0,0,0,0.08);--shadow-md:0 4px 16px rgba(0,0,0,0.12);
+}
+body{font-family:'Inter',sans-serif;background:var(--pearl);color:var(--ink);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
 
-  /* NAV */
-  nav { background: var(--white); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; padding: 0 24px; }
-  .nav-inner { max-width: 1000px; margin: 0 auto; height: 60px; display: flex; align-items: center; justify-content: space-between; }
-  .nav-logo { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--ink); }
-  .nav-logo span { color: var(--accent); }
-  .nav-links { display: flex; gap: 28px; }
-  .nav-links a { font-size: 13px; font-weight: 500; color: var(--muted); transition: color 0.2s; }
-  .nav-links a:hover { color: var(--ink); }
-  .nav-cta { background: var(--accent); color: white !important; font-size: 13px; font-weight: 600; padding: 8px 18px; border-radius: 8px; transition: background 0.2s; }
-  .nav-cta:hover { background: var(--accent-2) !important; }
+/* NAV */
+nav{background:rgba(26,63,166,0.97);backdrop-filter:blur(12px);position:sticky;top:0;z-index:200;padding:0 32px;border-bottom:1px solid rgba(255,255,255,0.1)}
+.nav-inner{max-width:1100px;margin:0 auto;height:64px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{display:flex;align-items:center;gap:10px}
+.nav-logo img{height:32px;filter:brightness(0) invert(1)}
+.nav-logo-text{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:white}
+.nav-logo-text span{color:#93C5FD}
+.nav-links{display:flex;gap:32px;align-items:center}
+.nav-links a{font-size:13px;font-weight:500;color:rgba(255,255,255,0.75);transition:color 0.2s}
+.nav-links a:hover{color:white}
+.nav-cta{background:white;color:var(--blue)!important;font-size:13px;font-weight:700;padding:9px 20px;border-radius:8px;transition:opacity 0.2s}
+.nav-cta:hover{opacity:0.9}
 
-  /* HERO */
-  .hero { background: linear-gradient(135deg, #1E3A8A 0%, #1D4ED8 50%, #2563EB 100%); padding: 72px 24px 64px; text-align: center; position: relative; overflow: hidden; }
-  .hero::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.05) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(255,255,255,0.05) 0%, transparent 50%); }
-  .hero-inner { max-width: 700px; margin: 0 auto; position: relative; }
-  .hero-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.25); color: white; font-size: 12px; font-weight: 600; letter-spacing: 0.5px; padding: 5px 14px; border-radius: 20px; margin-bottom: 24px; }
-  .hero-badge::before { content: ''; width: 6px; height: 6px; background: #4ADE80; border-radius: 50%; animation: pulse 2s infinite; }
-  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
-  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(32px, 5vw, 52px); font-weight: 800; line-height: 1.15; color: white; margin-bottom: 16px; }
-  .hero p { font-size: 17px; color: rgba(255,255,255,0.8); font-weight: 300; margin-bottom: 32px; }
-  .hero-stats { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-bottom: 36px; }
-  .hero-stat-num { font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 800; color: white; line-height: 1; }
-  .hero-stat-label { font-size: 11px; color: rgba(255,255,255,0.65); text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
-  .hero-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-  .btn-white { background: white; color: var(--accent); font-size: 14px; font-weight: 600; padding: 12px 28px; border-radius: 8px; transition: opacity 0.2s; }
-  .btn-white:hover { opacity: 0.9; }
-  .btn-outline { background: transparent; color: white; border: 1.5px solid rgba(255,255,255,0.5); font-size: 14px; font-weight: 500; padding: 12px 28px; border-radius: 8px; transition: border-color 0.2s; }
-  .btn-outline:hover { border-color: white; }
+/* HERO */
+.hero{background:linear-gradient(135deg,#0F2878 0%,#1A3FA6 40%,#2563EB 100%);padding:80px 32px 72px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle at 15% 50%,rgba(255,255,255,0.06) 0%,transparent 50%),radial-gradient(circle at 85% 20%,rgba(255,255,255,0.04) 0%,transparent 50%);pointer-events:none}
+.hero-inner{max-width:1100px;margin:0 auto;position:relative}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);color:white;font-size:12px;font-weight:600;letter-spacing:0.5px;padding:6px 16px;border-radius:20px;margin-bottom:28px}
+.hero-badge::before{content:'';width:7px;height:7px;background:#4ADE80;border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(36px,5vw,58px);font-weight:800;color:white;line-height:1.1;margin-bottom:16px;max-width:700px}
+.hero p{font-size:17px;color:rgba(255,255,255,0.78);font-weight:300;max-width:580px;margin-bottom:48px;line-height:1.7}
+.hero-nav-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:900px}
+.hero-nav-card{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:var(--radius);padding:20px;cursor:pointer;transition:background 0.2s,transform 0.2s;text-align:center}
+.hero-nav-card:hover{background:rgba(255,255,255,0.18);transform:translateY(-2px)}
+.hero-nav-card-icon{font-size:24px;margin-bottom:10px}
+.hero-nav-card-title{font-size:14px;font-weight:600;color:white;margin-bottom:4px}
+.hero-nav-card-sub{font-size:12px;color:rgba(255,255,255,0.6)}
 
-  /* PILLS ROW */
-  .value-row { background: var(--white); border-bottom: 1px solid var(--border); padding: 20px 24px; }
-  .value-inner { max-width: 1000px; margin: 0 auto; display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
-  .value-pill { font-size: 13px; font-weight: 500; color: var(--ink-2); background: var(--pearl-2); border: 1px solid var(--border); padding: 7px 16px; border-radius: 20px; display: flex; align-items: center; gap: 6px; }
+/* WHAT WE DO */
+.what-section{background:white;border-bottom:1px solid var(--border);padding:56px 32px}
+.section-inner{max-width:1100px;margin:0 auto}
+.section-label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;color:var(--blue-3);margin-bottom:8px}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(26px,3vw,36px);font-weight:700;color:var(--ink);margin-bottom:8px}
+.section-sub{font-size:15px;color:var(--muted);font-weight:300;margin-bottom:40px;max-width:560px}
+.what-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.what-card{background:var(--pearl);border:1px solid var(--border);border-radius:var(--radius);padding:28px 22px;transition:border-color 0.2s,box-shadow 0.2s}
+.what-card:hover{border-color:#BFDBFE;box-shadow:var(--shadow-md)}
+.what-icon{font-size:28px;margin-bottom:14px}
+.what-title{font-weight:600;font-size:15px;color:var(--ink);margin-bottom:6px}
+.what-text{font-size:13px;color:var(--muted);line-height:1.6}
 
-  /* MAIN */
-  .main { max-width: 1000px; margin: 0 auto; padding: 48px 24px; }
+/* AFFILIATES */
+.affiliates-section{padding:56px 32px;background:var(--pearl)}
+.aff-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.aff-card{background:white;border:1px solid var(--border);border-radius:var(--radius);padding:28px 20px;text-align:center;box-shadow:var(--shadow);transition:box-shadow 0.2s,transform 0.2s,border-color 0.2s;cursor:pointer}
+.aff-card:hover{box-shadow:var(--shadow-md);transform:translateY(-3px);border-color:#BFDBFE}
+.aff-photo{width:90px;height:90px;border-radius:50%;object-fit:cover;border:3px solid #BFDBFE;margin:0 auto 16px;display:block;background:var(--pearl-2)}
+.aff-name{font-weight:700;font-size:16px;color:var(--ink);margin-bottom:4px}
+.aff-role{font-size:11px;color:var(--blue-3);font-weight:600;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:10px}
+.aff-expertise{font-size:12px;color:var(--muted);margin-bottom:14px;line-height:1.5}
+.aff-markets{display:flex;flex-wrap:wrap;gap:5px;justify-content:center;margin-bottom:16px}
+.aff-market{font-size:10px;font-weight:600;background:var(--blue-light);color:var(--blue-2);border:1px solid #BFDBFE;padding:3px 8px;border-radius:4px}
+.aff-btn{display:inline-block;background:var(--blue-3);color:white;font-size:12px;font-weight:600;padding:8px 20px;border-radius:8px;transition:background 0.2s;border:none;cursor:pointer;font-family:'Inter',sans-serif}
+.aff-btn:hover{background:var(--blue-2)}
 
-  /* SECTION */
-  .section-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; color: var(--muted); margin-bottom: 8px; }
-  .section-title { font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 700; color: var(--ink); margin-bottom: 8px; }
-  .section-sub { font-size: 15px; color: var(--muted); font-weight: 300; margin-bottom: 36px; }
+/* WHY US */
+.why-section{background:linear-gradient(135deg,#0F2878 0%,#1A3FA6 100%);padding:56px 32px}
+.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.why-card{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:var(--radius);padding:28px 22px;transition:background 0.2s}
+.why-card:hover{background:rgba(255,255,255,0.13)}
+.why-icon{font-size:28px;margin-bottom:14px}
+.why-title{font-weight:600;font-size:15px;color:white;margin-bottom:8px}
+.why-text{font-size:13px;color:rgba(255,255,255,0.65);line-height:1.6}
+.why-section .section-label{color:#93C5FD}
+.why-section .section-title{color:white}
+.why-section .section-sub{color:rgba(255,255,255,0.65)}
 
-  /* TEAM GRID */
-  .team-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; }
-  .team-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px 20px; text-align: center; box-shadow: var(--shadow); transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s; cursor: pointer; }
-  .team-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); border-color: #BFDBFE; }
-  .team-photo { width: 88px; height: 88px; border-radius: 50%; object-fit: cover; border: 3px solid var(--border); margin: 0 auto 14px; display: block; background: var(--pearl-2); }
-  .team-name { font-weight: 600; font-size: 15px; color: var(--ink); margin-bottom: 4px; }
-  .team-role { font-size: 11px; color: var(--accent); font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
-  .team-email { font-size: 12px; color: var(--muted); }
-  .team-email a { color: var(--muted); transition: color 0.2s; }
-  .team-email a:hover { color: var(--accent); }
+/* BRANDS */
+.brands-section{background:white;padding:48px 32px;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.brands-strip{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.brand-pill{background:var(--pearl);border:1px solid var(--border);border-radius:8px;padding:10px 20px;font-size:13px;font-weight:600;color:var(--ink-2);transition:border-color 0.2s,box-shadow 0.2s}
+.brand-pill:hover{border-color:#BFDBFE;box-shadow:var(--shadow)}
+.signup-banner{margin-top:28px;background:var(--blue-light);border:1px solid #BFDBFE;border-radius:var(--radius);padding:20px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.signup-banner-text{font-size:14px;color:var(--blue-2);font-weight:500}
+.signup-banner-text strong{font-weight:700}
+.signup-banner-btn{background:var(--blue-3);color:white;font-size:13px;font-weight:600;padding:10px 22px;border-radius:8px;transition:background 0.2s;white-space:nowrap}
+.signup-banner-btn:hover{background:var(--blue-2)}
 
-  /* FEATURES */
-  .features { margin-top: 64px; }
-  .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
-  .feature-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px 24px; box-shadow: var(--shadow); }
-  .feature-icon { font-size: 28px; margin-bottom: 14px; }
-  .feature-title { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: var(--ink); margin-bottom: 8px; }
-  .feature-text { font-size: 13px; color: var(--muted); line-height: 1.7; }
+/* TESTIMONIALS */
+.testimonials-section{background:var(--pearl);padding:56px 32px}
+.test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.test-card{background:white;border:1px solid var(--border);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow)}
+.test-text{font-size:13px;color:var(--ink-2);line-height:1.7;font-style:italic;margin-bottom:14px;border-left:3px solid var(--blue-3);padding-left:14px}
+.test-brand{font-size:12px;font-weight:700;color:var(--blue-3)}
 
-  /* BRANDS */
-  .brands-section { margin-top: 64px; }
-  .brands-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; margin-top: 16px; }
-  .brand-card { background: var(--white); border: 1px solid var(--border); border-radius: 8px; padding: 16px; text-align: center; font-size: 13px; font-weight: 600; color: var(--ink-2); transition: border-color 0.2s, box-shadow 0.2s; }
-  .brand-card:hover { border-color: #BFDBFE; box-shadow: var(--shadow-md); }
+/* CASINO REVIEWS */
+.reviews-section{background:white;padding:56px 32px;border-top:1px solid var(--border)}
+.casino-card{background:var(--pearl);border:1px solid var(--border);border-radius:var(--radius);padding:24px;margin-bottom:16px;box-shadow:var(--shadow);transition:box-shadow 0.2s,border-color 0.2s}
+.casino-card:hover{box-shadow:var(--shadow-md);border-color:#D1D5DB}
+.casino-top{display:flex;align-items:flex-start;gap:16px;margin-bottom:16px}
+.casino-rank{font-family:'Playfair Display',serif;font-size:28px;font-weight:800;color:#E5E7EB;line-height:1;min-width:36px}
+.casino-rank.r1{color:#D97706}.casino-rank.r2{color:#9CA3AF}.casino-rank.r3{color:#B45309}
+.casino-logo-box{width:52px;height:52px;border-radius:10px;background:var(--blue-light);border:1px solid #BFDBFE;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:700;font-size:13px;color:var(--blue-3);flex-shrink:0}
+.casino-info{flex:1}
+.casino-badges{display:flex;gap:6px;margin-bottom:6px;flex-wrap:wrap}
+.badge{font-size:10px;font-weight:600;padding:3px 8px;border-radius:4px}
+.badge-top{background:var(--gold-light);color:var(--gold);border:1px solid #FDE68A}
+.badge-ed{background:var(--blue-light);color:var(--blue-3);border:1px solid #BFDBFE}
+.badge-hot{background:var(--green-light);color:var(--green);border:1px solid #BBF7D0}
+.casino-name{font-family:'Playfair Display',serif;font-size:19px;font-weight:700;color:var(--ink);margin-bottom:4px}
+.casino-stars{color:#FBBF24;font-size:14px}
+.casino-score{font-size:13px;color:var(--muted);margin-left:6px}
+.casino-best{font-size:13px;color:var(--muted);margin-top:4px}
+.casino-best strong{color:var(--ink-2);font-weight:500}
+.bonus-box{background:linear-gradient(135deg,#EFF6FF,#F0FDF4);border:1px solid #BFDBFE;border-radius:8px;padding:14px 16px;margin-bottom:16px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.bonus-amount{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--blue-3)}
+.bonus-label{font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:0.5px;color:var(--muted)}
+.bonus-wager{font-size:12px;color:var(--muted);text-align:right}
+.bonus-wager strong{color:var(--ink-2)}
+.casino-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:8px;overflow:hidden;margin-bottom:16px}
+.stat-box{background:white;padding:12px 14px}
+.stat-label{font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:0.5px;color:var(--muted);margin-bottom:3px}
+.stat-val{font-size:14px;font-weight:600;color:var(--ink)}
+.stat-val.g{color:var(--green)}
+.casino-verdict{font-size:13px;color:var(--ink-2);line-height:1.7;margin-bottom:16px;padding-left:12px;border-left:3px solid var(--blue-3)}
+.casino-cta{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.btn-claim{background:var(--blue-3);color:white;font-size:13px;font-weight:600;padding:11px 24px;border-radius:8px;transition:background 0.2s;display:inline-block}
+.btn-claim:hover{background:var(--blue-2)}
+.btn-review{font-size:13px;font-weight:500;color:var(--muted);transition:color 0.2s}
+.btn-review:hover{color:var(--ink)}
+.cta-disc{font-size:10px;color:var(--muted);width:100%}
+.view-all{display:inline-flex;align-items:center;gap:8px;margin-top:8px;background:var(--pearl);border:1px solid var(--border);color:var(--ink-2);font-size:13px;font-weight:600;padding:11px 24px;border-radius:8px;transition:border-color 0.2s}
+.view-all:hover{border-color:var(--blue-3);color:var(--blue-3)}
 
-  /* TESTIMONIALS */
-  .testimonials { margin-top: 64px; background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 40px; box-shadow: var(--shadow); }
-  .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 24px; }
-  .testimonial { border-left: 3px solid var(--accent); padding-left: 16px; }
-  .testimonial-text { font-size: 13px; color: var(--ink-2); line-height: 1.7; font-style: italic; margin-bottom: 10px; }
-  .testimonial-brand { font-size: 12px; font-weight: 600; color: var(--accent); }
+/* CONTACT */
+.contact-section{background:linear-gradient(135deg,#0F2878 0%,#1A3FA6 100%);padding:64px 32px}
+.contact-inner{max-width:700px;margin:0 auto;text-align:center}
+.contact-inner .section-label{color:#93C5FD}
+.contact-inner .section-title{color:white;margin-bottom:12px}
+.contact-inner p{color:rgba(255,255,255,0.72);font-size:16px;font-weight:300;margin-bottom:36px}
+.contact-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:48px}
+.btn-contact-primary{background:white;color:var(--blue);font-size:14px;font-weight:700;padding:14px 32px;border-radius:8px;transition:opacity 0.2s}
+.btn-contact-primary:hover{opacity:0.9}
+.btn-contact-secondary{background:transparent;color:white;border:1.5px solid rgba(255,255,255,0.4);font-size:14px;font-weight:500;padding:14px 32px;border-radius:8px;transition:border-color 0.2s}
+.btn-contact-secondary:hover{border-color:white}
+.contact-form{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:var(--radius);padding:32px;text-align:left}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+.form-input,.form-textarea,.form-select{width:100%;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:8px;padding:11px 14px;font-size:14px;font-family:'Inter',sans-serif;color:white;outline:none;transition:border-color 0.2s}
+.form-input::placeholder,.form-textarea::placeholder{color:rgba(255,255,255,0.4)}
+.form-input:focus,.form-textarea:focus,.form-select:focus{border-color:rgba(255,255,255,0.6)}
+.form-select{appearance:none;cursor:pointer}
+.form-select option{background:#1A3FA6;color:white}
+.form-textarea{resize:vertical;min-height:90px;margin-bottom:14px}
+.form-submit{width:100%;background:white;color:var(--blue);border:none;font-family:'Inter',sans-serif;font-size:14px;font-weight:700;padding:13px;border-radius:8px;cursor:pointer;transition:opacity 0.2s}
+.form-submit:hover{opacity:0.9}
 
-  /* CASINO REVIEWS SECTION */
-  .reviews-section { margin-top: 64px; }
-  .casino-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; margin-bottom: 16px; box-shadow: var(--shadow); transition: box-shadow 0.2s, border-color 0.2s; }
-  .casino-card:hover { box-shadow: var(--shadow-md); border-color: #D1D5DB; }
-  .casino-card-top { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 16px; }
-  .casino-rank { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 800; color: var(--pearl-3); line-height: 1; min-width: 36px; }
-  .casino-rank.r1 { color: #D97706; } .casino-rank.r2 { color: #9CA3AF; } .casino-rank.r3 { color: #B45309; }
-  .casino-logo { width: 52px; height: 52px; border-radius: 10px; background: var(--pearl-2); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 13px; color: var(--accent); flex-shrink: 0; }
-  .casino-info { flex: 1; }
-  .casino-badges { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 6px; }
-  .badge { font-size: 10px; font-weight: 600; padding: 3px 8px; border-radius: 4px; }
-  .badge-top { background: var(--gold-light); color: var(--gold); border: 1px solid #FDE68A; }
-  .badge-editor { background: #EFF6FF; color: var(--accent); border: 1px solid #BFDBFE; }
-  .badge-new { background: var(--green-light); color: var(--green); border: 1px solid #BBF7D0; }
-  .casino-name { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--ink); margin-bottom: 4px; }
-  .casino-stars { color: #FBBF24; font-size: 14px; } .casino-score { font-size: 13px; color: var(--muted); margin-left: 6px; }
-  .casino-best-for { font-size: 13px; color: var(--muted); margin-top: 4px; }
-  .casino-best-for strong { color: var(--ink-2); font-weight: 500; }
-  .bonus-highlight { background: linear-gradient(135deg, #EFF6FF 0%, #F0FDF4 100%); border: 1px solid #BFDBFE; border-radius: 8px; padding: 14px 16px; margin-bottom: 16px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
-  .bonus-amount { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--accent); }
-  .bonus-label { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; color: var(--muted); }
-  .bonus-wagering { font-size: 12px; color: var(--muted); text-align: right; }
-  .bonus-wagering strong { color: var(--ink-2); }
-  .casino-stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; margin-bottom: 16px; }
-  .stat-box { background: var(--pearl); padding: 12px 14px; }
-  .stat-label { font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; color: var(--muted); margin-bottom: 3px; }
-  .stat-val { font-size: 14px; font-weight: 600; color: var(--ink); }
-  .stat-val.green { color: var(--green); }
-  .casino-verdict { font-size: 13px; color: var(--ink-2); line-height: 1.7; margin-bottom: 16px; padding-left: 12px; border-left: 3px solid var(--accent); }
-  .casino-cta { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
-  .btn-claim { background: var(--accent); color: white; font-size: 13px; font-weight: 600; padding: 11px 24px; border-radius: 8px; transition: background 0.2s; display: inline-block; }
-  .btn-claim:hover { background: var(--accent-2); }
-  .btn-review { font-size: 13px; font-weight: 500; color: var(--muted); transition: color 0.2s; }
-  .btn-review:hover { color: var(--ink); }
-  .cta-disclaimer { font-size: 10px; color: var(--muted); width: 100%; }
+/* FOOTER */
+footer{background:#0A1F5C;padding:36px 32px}
+.footer-inner{max-width:1100px;margin:0 auto}
+.footer-top{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;flex-wrap:wrap;margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid rgba(255,255,255,0.1)}
+.footer-logo{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:white;margin-bottom:8px}
+.footer-logo span{color:#93C5FD}
+.footer-tagline{font-size:12px;color:rgba(255,255,255,0.5)}
+.footer-links-col h4{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:rgba(255,255,255,0.4);margin-bottom:12px}
+.footer-links-col a{display:block;font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:8px;transition:color 0.2s}
+.footer-links-col a:hover{color:white}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.footer-disclaimer{font-size:11px;color:rgba(255,255,255,0.35);max-width:700px;line-height:1.6}
+.footer-badges{display:flex;gap:8px;flex-wrap:wrap}
+.footer-badge{font-size:10px;font-weight:600;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.5);padding:4px 10px;border-radius:4px}
 
-  /* CONTACT */
-  .contact-section { margin-top: 64px; background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 40px; box-shadow: var(--shadow); }
-  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 24px; }
-  .contact-info p { font-size: 15px; color: var(--muted); font-weight: 300; line-height: 1.8; margin-bottom: 20px; }
-  .contact-list { list-style: none; }
-  .contact-list li { display: flex; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--border); font-size: 13px; }
-  .contact-list-label { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); min-width: 70px; margin-top: 2px; }
-  .contact-list-val { color: var(--ink-2); }
-  .contact-form { display: flex; flex-direction: column; gap: 14px; }
-  .form-input, .form-textarea { width: 100%; background: var(--pearl); border: 1px solid var(--border); border-radius: 8px; padding: 11px 14px; font-size: 14px; font-family: 'Inter', sans-serif; color: var(--ink); outline: none; transition: border-color 0.2s; }
-  .form-input:focus, .form-textarea:focus { border-color: var(--accent); }
-  .form-textarea { resize: vertical; min-height: 90px; }
-  .form-submit { background: var(--accent); color: white; border: none; font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600; padding: 13px; border-radius: 8px; cursor: pointer; transition: background 0.2s; }
-  .form-submit:hover { background: var(--accent-2); }
+/* MODAL */
+.modal-overlay{position:fixed;inset:0;background:rgba(10,20,60,0.7);backdrop-filter:blur(4px);z-index:1000;display:flex;align-items:center;justify-content:center;padding:24px;opacity:0;pointer-events:none;transition:opacity 0.3s}
+.modal-overlay.open{opacity:1;pointer-events:all}
+.modal{background:white;border-radius:16px;padding:36px;max-width:560px;width:100%;box-shadow:0 24px 64px rgba(0,0,0,0.2);transform:translateY(20px);transition:transform 0.3s;position:relative}
+.modal-overlay.open .modal{transform:translateY(0)}
+.modal-close{position:absolute;top:16px;right:16px;background:var(--pearl);border:1px solid var(--border);border-radius:50%;width:32px;height:32px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:16px;color:var(--muted);transition:background 0.2s}
+.modal-close:hover{background:var(--pearl-2)}
+.modal-header{display:flex;align-items:center;gap:16px;margin-bottom:24px}
+.modal-photo{width:64px;height:64px;border-radius:50%;object-fit:cover;border:3px solid #BFDBFE;flex-shrink:0;background:var(--pearl-2)}
+.modal-name{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--ink);margin-bottom:4px}
+.modal-role{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;color:var(--blue-3)}
+.modal-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px}
+.modal-tag{font-size:11px;font-weight:600;background:var(--blue-light);color:var(--blue-2);border:1px solid #BFDBFE;padding:4px 10px;border-radius:4px}
+.modal-bio{font-size:14px;color:var(--ink-2);line-height:1.7;margin-bottom:20px}
+.modal-details{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:24px}
+.modal-detail{background:var(--pearl);border:1px solid var(--border);border-radius:8px;padding:12px 14px}
+.modal-detail-label{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;color:var(--muted);margin-bottom:4px}
+.modal-detail-val{font-size:13px;font-weight:500;color:var(--ink)}
+.modal-cta{display:flex;gap:10px;flex-wrap:wrap}
+.modal-btn-primary{background:var(--blue-3);color:white;font-size:13px;font-weight:600;padding:11px 24px;border-radius:8px;transition:background 0.2s;display:inline-block}
+.modal-btn-primary:hover{background:var(--blue-2)}
+.modal-btn-secondary{background:var(--pearl);border:1px solid var(--border);color:var(--ink-2);font-size:13px;font-weight:500;padding:11px 20px;border-radius:8px;transition:border-color 0.2s;display:inline-block}
+.modal-btn-secondary:hover{border-color:var(--blue-3);color:var(--blue-3)}
 
-  /* FOOTER */
-  footer { background: var(--white); border-top: 1px solid var(--border); padding: 36px 24px; margin-top: 64px; }
-  .footer-inner { max-width: 1000px; margin: 0 auto; }
-  .footer-logo { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: var(--ink); margin-bottom: 10px; }
-  .footer-logo span { color: var(--accent); }
-  .footer-disclaimer { font-size: 12px; color: var(--muted); line-height: 1.7; max-width: 700px; margin-bottom: 16px; }
-  .footer-links { display: flex; flex-wrap: wrap; gap: 20px; margin-bottom: 16px; }
-  .footer-links a { font-size: 12px; color: var(--muted); transition: color 0.2s; }
-  .footer-links a:hover { color: var(--ink); }
-  .footer-badges { display: flex; flex-wrap: wrap; gap: 8px; }
-  .footer-badge { font-size: 11px; font-weight: 600; background: var(--pearl-2); border: 1px solid var(--border); color: var(--muted); padding: 4px 10px; border-radius: 4px; }
-
-  @media (max-width: 640px) {
-    .nav-links { display: none; }
-    .hero-stats { gap: 24px; }
-    .contact-grid { grid-template-columns: 1fr; }
-    .casino-stats { grid-template-columns: repeat(2,1fr); }
-  }
+@media(max-width:768px){
+  .nav-links{display:none}
+  .hero-nav-cards{grid-template-columns:repeat(2,1fr)}
+  .what-grid,.aff-grid,.why-grid,.test-grid{grid-template-columns:repeat(2,1fr)}
+  .form-row{grid-template-columns:1fr}
+  .modal-details{grid-template-columns:1fr}
+}
+@media(max-width:480px){
+  .hero-nav-cards,.what-grid,.aff-grid,.why-grid,.test-grid{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
@@ -171,13 +221,15 @@
 <!-- NAV -->
 <nav>
   <div class="nav-inner">
-    <div class="nav-logo">Matching<span>Visions</span>.ai</div>
+    <div class="nav-logo">
+      <div class="nav-logo-text">Matching<span>Visions</span>.ai</div>
+    </div>
     <div class="nav-links">
-      <a href="#portfolio">Portfolio</a>
-      <a href="#features">Why Us</a>
+      <a href="#affiliates">Portfolio</a>
+      <a href="#why">Why Us</a>
       <a href="#casinos">Casino Reviews</a>
-      <a href="#contact">Contact</a>
-      <a href="#contact" class="nav-cta">Get In Touch</a>
+      <a href="https://www.matchingvisions.com" target="_blank">Main Site</a>
+      <a href="#contact" class="nav-cta">Become a Partner</a>
     </div>
   </div>
 </nav>
@@ -185,325 +237,467 @@
 <!-- HERO -->
 <div class="hero">
   <div class="hero-inner">
-    <div class="hero-badge">Trusted iGaming Affiliate Network</div>
-    <h1>Welcome To<br>MatchingVisions Portfolio</h1>
-    <p>Click on a manager to see their affiliate sources, brands, and GEOs.</p>
-    <div class="hero-stats">
-      <div>
-        <div class="hero-stat-num">2,500+</div>
-        <div class="hero-stat-label">Affiliates</div>
-      </div>
-      <div>
-        <div class="hero-stat-num">100+</div>
-        <div class="hero-stat-label">Brands</div>
-      </div>
-      <div>
-        <div class="hero-stat-num">500+</div>
-        <div class="hero-stat-label">Campaigns</div>
-      </div>
-      <div>
-        <div class="hero-stat-num">12+</div>
-        <div class="hero-stat-label">Years Experience</div>
-      </div>
-    </div>
-    <div class="hero-actions">
-      <a href="#portfolio" class="btn-white">Meet The Team</a>
-      <a href="#contact" class="btn-outline">Become a Partner</a>
+    <div class="hero-badge">Trusted iGaming Affiliate Network Since 2013</div>
+    <h1>Elite iGaming<br>Affiliate Network</h1>
+    <p>Matching Visions connects trusted affiliates, advertisers, and casino review content across multiple GEOs — all under one roof.</p>
+    <div class="hero-nav-cards">
+      <a href="#affiliates" class="hero-nav-card">
+        <div class="hero-nav-card-icon">👥</div>
+        <div class="hero-nav-card-title">Our Portfolio</div>
+        <div class="hero-nav-card-sub">Meet our affiliate managers</div>
+      </a>
+      <a href="#why" class="hero-nav-card">
+        <div class="hero-nav-card-icon">⭐</div>
+        <div class="hero-nav-card-title">Why Work With Us</div>
+        <div class="hero-nav-card-sub">Our value proposition</div>
+      </a>
+      <a href="#casinos" class="hero-nav-card">
+        <div class="hero-nav-card-icon">🎰</div>
+        <div class="hero-nav-card-title">Casino Reviews</div>
+        <div class="hero-nav-card-sub">Tested & ranked casinos</div>
+      </a>
+      <a href="#contact" class="hero-nav-card">
+        <div class="hero-nav-card-icon">🤝</div>
+        <div class="hero-nav-card-title">Become a Partner</div>
+        <div class="hero-nav-card-sub">Publishers & advertisers</div>
+      </a>
     </div>
   </div>
 </div>
 
-<!-- VALUE PILLS -->
-<div class="value-row">
-  <div class="value-inner">
-    <span class="value-pill">⭐ Top Affiliates</span>
-    <span class="value-pill">🌍 Multiple GEOs</span>
-    <span class="value-pill">💳 On-Time Payments</span>
-    <span class="value-pill">📊 Campaign Management</span>
-    <span class="value-pill">🔒 Trusted Partners Only</span>
-    <span class="value-pill">🤝 Flexible Deals</span>
+<!-- WHAT WE DO -->
+<div class="what-section">
+  <div class="section-inner">
+    <p class="section-label">What We Do</p>
+    <h2 class="section-title">Everything iGaming, Under One Roof</h2>
+    <p class="section-sub">We aggregate top affiliates, manage campaigns, and build brand partnerships across the most competitive GEOs in the world.</p>
+    <div class="what-grid">
+      <div class="what-card">
+        <div class="what-icon">🌐</div>
+        <div class="what-title">Affiliate Network</div>
+        <div class="what-text">2,500+ verified affiliates covering SEO, PPC, social, and streaming across 18+ markets.</div>
+      </div>
+      <div class="what-card">
+        <div class="what-icon">📊</div>
+        <div class="what-title">Campaign Management</div>
+        <div class="what-text">500+ active campaigns managed with full tracking, reporting, and dedicated support per account.</div>
+      </div>
+      <div class="what-card">
+        <div class="what-icon">🏆</div>
+        <div class="what-title">Brand Partnerships</div>
+        <div class="what-text">Direct relationships with 100+ casino and sportsbook brands. We only work with brands we trust personally.</div>
+      </div>
+      <div class="what-card">
+        <div class="what-icon">🎰</div>
+        <div class="what-title">Casino Reviews</div>
+        <div class="what-text">Independent, deposit-tested casino reviews published across our affiliate sites — no paid rankings.</div>
+      </div>
+    </div>
   </div>
 </div>
 
-<!-- MAIN -->
-<main class="main">
-
-  <!-- PORTFOLIO / TEAM -->
-  <div id="portfolio">
+<!-- FEATURED AFFILIATES -->
+<div class="affiliates-section" id="affiliates">
+  <div class="section-inner">
     <p class="section-label">Affiliate Managers</p>
-    <h2 class="section-title">Our Team</h2>
-    <p class="section-sub">Click on a manager to see their sources, GEOs, and active deals.</p>
-    <div class="team-grid">
+    <h2 class="section-title">Meet Our Affiliates</h2>
+    <p class="section-sub">Click on a manager to learn more about their expertise, markets, and partnership approach.</p>
+    <div class="aff-grid">
 
-      <div class="team-card">
-        <img class="team-photo" src="https://matchingvisions.com/wp-content/uploads/2024/01/nina.png" alt="Nina Plut" onerror="this.style.background='#EFF6FF';this.src=''">
-        <div class="team-name">Nina Plut</div>
-        <div class="team-role">Affiliate Manager</div>
-        <div class="team-email"><a href="mailto:nina@matchingvisions.com">nina@matchingvisions.com</a></div>
+      <div class="aff-card" onclick="openModal('nina')">
+        <img class="aff-photo" src="https://matchingvisions.com/wp-content/uploads/2024/01/nina.png" alt="Nina Plut" onerror="this.style.display='none'">
+        <div class="aff-name">Nina Plut</div>
+        <div class="aff-role">Affiliate Manager</div>
+        <div class="aff-expertise">SEO & casino specialist with deep expertise in Nordic and Finnish markets.</div>
+        <div class="aff-markets"><span class="aff-market">FI</span><span class="aff-market">SE</span><span class="aff-market">NO</span><span class="aff-market">SEO</span></div>
+        <button class="aff-btn">More Details</button>
       </div>
 
-      <div class="team-card">
-        <img class="team-photo" src="https://matchingvisions.com/wp-content/uploads/2024/12/sam.jpg" alt="Samantha Mathey" onerror="this.style.background='#F0FDF4';this.src=''">
-        <div class="team-name">Samantha Mathey</div>
-        <div class="team-role">Affiliate Manager</div>
-        <div class="team-email"><a href="mailto:sam@matchingvisions.com">sam@matchingvisions.com</a></div>
+      <div class="aff-card" onclick="openModal('sam')">
+        <img class="aff-photo" src="https://matchingvisions.com/wp-content/uploads/2024/12/sam.jpg" alt="Samantha Mathey" onerror="this.style.display='none'">
+        <div class="aff-name">Samantha Mathey</div>
+        <div class="aff-role">Affiliate Manager</div>
+        <div class="aff-expertise">Multi-market specialist covering European and English-speaking GEOs with strong brand relationships.</div>
+        <div class="aff-markets"><span class="aff-market">UK</span><span class="aff-market">CA</span><span class="aff-market">AU</span><span class="aff-market">NZ</span></div>
+        <button class="aff-btn">More Details</button>
       </div>
 
-      <div class="team-card">
-        <img class="team-photo" src="https://matchingvisions.com/new_website/wp-content/uploads/2019/09/leanne.jpg" alt="Leanne Muleba" onerror="this.style.background='#FFFBEB';this.src=''">
-        <div class="team-name">Leanne Muleba</div>
-        <div class="team-role">Chief Operating Officer</div>
-        <div class="team-email"><a href="mailto:leanne@matchingvisions.com">leanne@matchingvisions.com</a></div>
+      <div class="aff-card" onclick="openModal('eray')">
+        <img class="aff-photo" src="https://matchingvisions.com/wp-content/uploads/2021/05/eray.png" alt="Eray Esen" onerror="this.style.display='none'">
+        <div class="aff-name">Eray Esen</div>
+        <div class="aff-role">Senior Affiliate Manager</div>
+        <div class="aff-expertise">DACH and Southern European specialist with extensive PPC and SEO affiliate network.</div>
+        <div class="aff-markets"><span class="aff-market">DE</span><span class="aff-market">AT</span><span class="aff-market">CH</span><span class="aff-market">PPC</span></div>
+        <button class="aff-btn">More Details</button>
       </div>
 
-      <div class="team-card">
-        <img class="team-photo" src="https://matchingvisions.com/wp-content/uploads/2021/05/eray.png" alt="Eray Esen" onerror="this.style.background='#F5F3FF';this.src=''">
-        <div class="team-name">Eray Esen</div>
-        <div class="team-role">Senior Affiliate Manager</div>
-        <div class="team-email"><a href="mailto:eray@matchingvisions.com">eray@matchingvisions.com</a></div>
-      </div>
-
-      <div class="team-card">
-        <img class="team-photo" src="https://matchingvisions.com/new_website/wp-content/uploads/2019/09/dennis_square1.jpg" alt="Dennis Dyhr-Hansen" onerror="this.style.background='#EFF6FF';this.src=''">
-        <div class="team-name">Dennis Dyhr-Hansen</div>
-        <div class="team-role">Affiliate Director</div>
-        <div class="team-email"><a href="mailto:dennis@matchingvisions.com">dennis@matchingvisions.com</a></div>
-      </div>
-
-      <div class="team-card">
-        <img class="team-photo" src="https://matchingvisions.com/wp-content/uploads/2024/06/dali.jpg" alt="Dalibor Spasikj" onerror="this.style.background='#F0FDF4';this.src=''">
-        <div class="team-name">Dalibor Spasikj</div>
-        <div class="team-role">Head of Operations</div>
-        <div class="team-email"><a href="mailto:dali@matchingvisions.com">dali@matchingvisions.com</a></div>
-      </div>
-
-      <div class="team-card">
-        <img class="team-photo" src="https://matchingvisions.com/wp-content/uploads/2025/08/carolina.png" alt="Carolina Quezada" onerror="this.style.background='#FFF1F2';this.src=''">
-        <div class="team-name">Carolina Quezada</div>
-        <div class="team-role">Junior Accounts Manager</div>
-        <div class="team-email"><a href="mailto:carolina@matchingvisions.com">carolina@matchingvisions.com</a></div>
-      </div>
-
-      <div class="team-card">
-        <img class="team-photo" src="https://matchingvisions.com/wp-content/uploads/2024/05/wendynew.png" alt="Wendy Mantilla" onerror="this.style.background='#FFFBEB';this.src=''">
-        <div class="team-name">Wendy Mantilla</div>
-        <div class="team-role">Accounts Manager</div>
-        <div class="team-email"><a href="mailto:wendy@matchingvisions.com">wendy@matchingvisions.com</a></div>
+      <div class="aff-card" onclick="openModal('dennis')">
+        <img class="aff-photo" src="https://matchingvisions.com/new_website/wp-content/uploads/2019/09/dennis_square1.jpg" alt="Dennis Dyhr-Hansen" onerror="this.style.display='none'">
+        <div class="aff-name">Dennis Dyhr-Hansen</div>
+        <div class="aff-role">Affiliate Director</div>
+        <div class="aff-expertise">12+ years leading affiliate strategy across Nordics, DACH, and emerging markets globally.</div>
+        <div class="aff-markets"><span class="aff-market">Global</span><span class="aff-market">DACH</span><span class="aff-market">Nordics</span></div>
+        <button class="aff-btn">More Details</button>
       </div>
 
     </div>
   </div>
+</div>
 
-  <!-- FEATURES -->
-  <div class="features" id="features">
-    <p class="section-label">Why Choose Us</p>
-    <h2 class="section-title">Expand Your iGaming Reach</h2>
-    <p class="section-sub">Matching Visions aggregates the best affiliates around, saving you time to focus on your business.</p>
-    <div class="features-grid">
-      <div class="feature-card">
-        <div class="feature-icon">⭐</div>
-        <div class="feature-title">The Best Affiliates</div>
-        <div class="feature-text">Top affiliates with multiple sources and GEOs. We only work with traffic we trust and have verified ourselves.</div>
+<!-- WHY US -->
+<div class="why-section" id="why">
+  <div class="section-inner">
+    <p class="section-label">Why Brands Work With Us</p>
+    <h2 class="section-title">Built on Trust & Performance</h2>
+    <p class="section-sub">Over 12 years of verified results, on-time payments, and relationships that last.</p>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">⭐</div>
+        <div class="why-title">Top Affiliates Only</div>
+        <div class="why-text">We are selective. Every affiliate in our network is verified for traffic quality, compliance, and consistent performance.</div>
       </div>
-      <div class="feature-card">
-        <div class="feature-icon">🤝</div>
-        <div class="feature-title">Flexibility</div>
-        <div class="feature-text">We are flexible to both online casino and affiliate needs alike. CPA, RevShare, Hybrid — we structure deals that work for both sides.</div>
+      <div class="why-card">
+        <div class="why-icon">🤝</div>
+        <div class="why-title">Flexible Commercial Models</div>
+        <div class="why-text">CPA, Revenue Share, Hybrid — we structure deals that work for both sides. One point of contact, zero complexity.</div>
       </div>
-      <div class="feature-card">
-        <div class="feature-icon">📊</div>
-        <div class="feature-title">Campaigns</div>
-        <div class="feature-text">Diligent campaign management across 500+ active campaigns. One point of contact, one payment, full transparency.</div>
+      <div class="why-card">
+        <div class="why-icon">📈</div>
+        <div class="why-title">Campaign Management</div>
+        <div class="why-text">Dedicated managers, real-time reporting, and diligent campaign oversight across 500+ active campaigns.</div>
       </div>
-      <div class="feature-card">
-        <div class="feature-icon">💳</div>
-        <div class="feature-title">On-Time Payments</div>
-        <div class="feature-text">We always pay before the 25th of the month. No delays, no excuses. Our track record speaks for itself.</div>
+      <div class="why-card">
+        <div class="why-icon">💳</div>
+        <div class="why-title">On-Time Payments</div>
+        <div class="why-text">We always pay before the 25th of the month. No delays, no excuses. Our track record speaks for itself.</div>
       </div>
     </div>
   </div>
+</div>
 
-  <!-- BRANDS -->
-  <div class="brands-section">
+<!-- BRANDS -->
+<div class="brands-section">
+  <div class="section-inner">
     <p class="section-label">Our Partners</p>
     <h2 class="section-title">Brands We Work With</h2>
-    <div class="brands-grid">
-      <div class="brand-card">Wildz Casino</div>
-      <div class="brand-card">Videoslots</div>
-      <div class="brand-card">Unibet</div>
-      <div class="brand-card">RIZK</div>
-      <div class="brand-card">MrGreen</div>
-      <div class="brand-card">Dunder</div>
-      <div class="brand-card">Duelz</div>
-      <div class="brand-card">Come On</div>
-      <div class="brand-card">Casumo</div>
-      <div class="brand-card">21.com</div>
+    <div class="brands-strip">
+      <span class="brand-pill">Wildz Casino</span>
+      <span class="brand-pill">Videoslots</span>
+      <span class="brand-pill">Unibet</span>
+      <span class="brand-pill">RIZK</span>
+      <span class="brand-pill">MrGreen</span>
+      <span class="brand-pill">Dunder</span>
+      <span class="brand-pill">Duelz</span>
+      <span class="brand-pill">Come On</span>
+      <span class="brand-pill">Casumo</span>
+      <span class="brand-pill">21.com</span>
+    </div>
+    <div class="signup-banner">
+      <div class="signup-banner-text">Are you an affiliate? <strong>Join 2,500+ publishers</strong> on the Matching Visions network and get access to 100+ brands with the best deals.</div>
+      <a href="https://publisher.matchingvisions.com/signup/" target="_blank" class="signup-banner-btn">Sign Up as Publisher →</a>
     </div>
   </div>
+</div>
 
-  <!-- TESTIMONIALS -->
-  <div class="testimonials">
+<!-- TESTIMONIALS -->
+<div class="testimonials-section">
+  <div class="section-inner">
     <p class="section-label">What Brands Say</p>
     <h2 class="section-title">Trusted By The Industry</h2>
-    <div class="testimonials-grid">
-      <div class="testimonial">
-        <div class="testimonial-text">"Wildz started working with Matching Visions from day one, and we have been growing ever since. Traffic is great quality and the team is always ready to help!"</div>
-        <div class="testimonial-brand">Wildz Casino</div>
+    <div class="test-grid" style="margin-top:32px">
+      <div class="test-card">
+        <div class="test-text">"Wildz started working with Matching Visions from day one, and we have been growing ever since. Traffic is great quality and the team is always ready to help!"</div>
+        <div class="test-brand">Wildz Casino</div>
       </div>
-      <div class="testimonial">
-        <div class="testimonial-text">"VideoSlots has so many accounts with Matching Visions and have never had an issue. We strongly believe it's due to their work ethics and productivity."</div>
-        <div class="testimonial-brand">Videoslots</div>
+      <div class="test-card">
+        <div class="test-text">"We have worked with Matching Visions for a very long time and are really happy with the results — both traffic quality and the treatment from the whole team."</div>
+        <div class="test-brand">RIZK</div>
       </div>
-      <div class="testimonial">
-        <div class="testimonial-text">"We have worked with Matching Visions for a very long time and are really happy with the results — traffic and treatment from the whole team."</div>
-        <div class="testimonial-brand">RIZK</div>
+      <div class="test-card">
+        <div class="test-text">"MrGreen has been working with Matching Visions for years, with over 300 active accounts and planning to grow even more in the near future."</div>
+        <div class="test-brand">MrGreen</div>
       </div>
     </div>
   </div>
+</div>
 
-  <!-- CASINO REVIEWS -->
-  <div class="reviews-section" id="casinos">
+<!-- CASINO REVIEWS -->
+<div class="reviews-section" id="casinos">
+  <div class="section-inner">
     <p class="section-label">Casino Reviews</p>
-    <h2 class="section-title">Top Rated Casinos — 2026</h2>
+    <h2 class="section-title">Top Rated Casinos 2026</h2>
     <p class="section-sub">Tested with real deposits. Ranked on bonus value, withdrawal speed, and terms transparency.</p>
 
     <div class="casino-card">
-      <div class="casino-card-top">
+      <div class="casino-top">
         <div class="casino-rank r1">#1</div>
-        <div class="casino-logo">BN</div>
+        <div class="casino-logo-box">BN</div>
         <div class="casino-info">
           <div class="casino-badges"><span class="badge badge-top">⭐ Biggest Bonus</span></div>
           <div class="casino-name">BetNova Casino</div>
           <div><span class="casino-stars">★★★★★</span><span class="casino-score">4.8 / 5.0</span></div>
-          <div class="casino-best-for"><strong>Best for:</strong> Players who want the biggest welcome package with fast withdrawals</div>
+          <div class="casino-best"><strong>Best for:</strong> Players who want the biggest welcome package with fast withdrawals</div>
         </div>
       </div>
-      <div class="bonus-highlight">
+      <div class="bonus-box">
         <div><div class="bonus-label">Welcome Bonus</div><div class="bonus-amount">€5,000 + 300 Free Spins</div></div>
-        <div class="bonus-wagering"><div><strong>35x</strong> wagering</div><div>Min deposit €20</div></div>
+        <div class="bonus-wager"><div><strong>35x</strong> wagering</div><div>Min deposit €20</div></div>
       </div>
       <div class="casino-stats">
-        <div class="stat-box"><div class="stat-label">Deposit Tested</div><div class="stat-val green">✓ Yes</div></div>
-        <div class="stat-box"><div class="stat-label">Withdrawal Tested</div><div class="stat-val green">✓ Yes</div></div>
+        <div class="stat-box"><div class="stat-label">Deposit Tested</div><div class="stat-val g">✓ Yes</div></div>
+        <div class="stat-box"><div class="stat-label">Withdrawal Tested</div><div class="stat-val g">✓ Yes</div></div>
         <div class="stat-box"><div class="stat-label">Support</div><div class="stat-val">Live Chat</div></div>
       </div>
       <div class="casino-verdict">Excellent bonus value, 3,000+ games and withdrawals processed within 12 hours during our test. The 35x wagering is fair for a package this size.</div>
       <div class="casino-cta">
         <a href="#" class="btn-claim">Claim Bonus →</a>
         <a href="#" class="btn-review">Read Full Review</a>
-        <div class="cta-disclaimer">18+ | Play Responsibly | T&Cs Apply</div>
+        <div class="cta-disc">18+ | Play Responsibly | T&Cs Apply</div>
       </div>
     </div>
 
     <div class="casino-card">
-      <div class="casino-card-top">
+      <div class="casino-top">
         <div class="casino-rank r2">#2</div>
-        <div class="casino-logo">SR</div>
+        <div class="casino-logo-box">SR</div>
         <div class="casino-info">
-          <div class="casino-badges"><span class="badge badge-editor">✦ Editor's Choice</span></div>
+          <div class="casino-badges"><span class="badge badge-ed">✦ Editor's Choice</span></div>
           <div class="casino-name">SpinRoyal</div>
           <div><span class="casino-stars">★★★★★</span><span class="casino-score">4.6 / 5.0</span></div>
-          <div class="casino-best-for"><strong>Best for:</strong> Mobile players who want strong multi-deposit bonuses with low wagering</div>
+          <div class="casino-best"><strong>Best for:</strong> Mobile players who want strong multi-deposit bonuses with low wagering</div>
         </div>
       </div>
-      <div class="bonus-highlight">
+      <div class="bonus-box">
         <div><div class="bonus-label">Welcome Bonus</div><div class="bonus-amount">€4,000 + 200 Free Spins</div></div>
-        <div class="bonus-wagering"><div><strong>30x</strong> wagering</div><div>Min deposit €20</div></div>
+        <div class="bonus-wager"><div><strong>30x</strong> wagering</div><div>Min deposit €20</div></div>
       </div>
       <div class="casino-stats">
-        <div class="stat-box"><div class="stat-label">Deposit Tested</div><div class="stat-val green">✓ Yes</div></div>
-        <div class="stat-box"><div class="stat-label">Withdrawal Tested</div><div class="stat-val green">✓ Yes</div></div>
+        <div class="stat-box"><div class="stat-label">Deposit Tested</div><div class="stat-val g">✓ Yes</div></div>
+        <div class="stat-box"><div class="stat-label">Withdrawal Tested</div><div class="stat-val g">✓ Yes</div></div>
         <div class="stat-box"><div class="stat-label">Support</div><div class="stat-val">Live Chat</div></div>
       </div>
       <div class="casino-verdict">30x wagering is the best in this comparison. Mobile experience is flawless and payouts landed in under 8 hours during testing.</div>
       <div class="casino-cta">
         <a href="#" class="btn-claim">Claim Bonus →</a>
         <a href="#" class="btn-review">Read Full Review</a>
-        <div class="cta-disclaimer">18+ | Play Responsibly | T&Cs Apply</div>
+        <div class="cta-disc">18+ | Play Responsibly | T&Cs Apply</div>
       </div>
     </div>
 
     <div class="casino-card">
-      <div class="casino-card-top">
+      <div class="casino-top">
         <div class="casino-rank r3">#3</div>
-        <div class="casino-logo">GX</div>
+        <div class="casino-logo-box">GX</div>
         <div class="casino-info">
-          <div class="casino-badges"><span class="badge badge-new">🔥 Hot Deal</span></div>
+          <div class="casino-badges"><span class="badge badge-hot">🔥 Hot Deal</span></div>
           <div class="casino-name">GoldX Gaming</div>
           <div><span class="casino-stars">★★★★★</span><span class="casino-score">4.4 / 5.0</span></div>
-          <div class="casino-best-for"><strong>Best for:</strong> Players who want cashback alongside their welcome package</div>
+          <div class="casino-best"><strong>Best for:</strong> Players who want cashback alongside their welcome package</div>
         </div>
       </div>
-      <div class="bonus-highlight">
+      <div class="bonus-box">
         <div><div class="bonus-label">Welcome Bonus</div><div class="bonus-amount">€2,500 + 25% Cashback</div></div>
-        <div class="bonus-wagering"><div><strong>35x</strong> wagering</div><div>Min deposit €20</div></div>
+        <div class="bonus-wager"><div><strong>35x</strong> wagering</div><div>Min deposit €20</div></div>
       </div>
       <div class="casino-stats">
-        <div class="stat-box"><div class="stat-label">Deposit Tested</div><div class="stat-val green">✓ Yes</div></div>
-        <div class="stat-box"><div class="stat-label">Withdrawal Tested</div><div class="stat-val green">✓ Yes</div></div>
+        <div class="stat-box"><div class="stat-label">Deposit Tested</div><div class="stat-val g">✓ Yes</div></div>
+        <div class="stat-box"><div class="stat-label">Withdrawal Tested</div><div class="stat-val g">✓ Yes</div></div>
         <div class="stat-box"><div class="stat-label">Support</div><div class="stat-val">Live Chat</div></div>
       </div>
       <div class="casino-verdict">Cashback on losses during the welcome period is a genuine differentiator. 4,000+ game library. Withdrawals averaged 18 hours in our test.</div>
       <div class="casino-cta">
         <a href="#" class="btn-claim">Claim Bonus →</a>
         <a href="#" class="btn-review">Read Full Review</a>
-        <div class="cta-disclaimer">18+ | Play Responsibly | T&Cs Apply</div>
+        <div class="cta-disc">18+ | Play Responsibly | T&Cs Apply</div>
       </div>
     </div>
 
+    <a href="https://www.matchingvisions.com" target="_blank" class="view-all">View All Casino Reviews →</a>
   </div>
+</div>
 
-  <!-- CONTACT -->
-  <div class="contact-section" id="contact">
+<!-- CONTACT -->
+<div class="contact-section" id="contact">
+  <div class="contact-inner">
     <p class="section-label">Get In Touch</p>
-    <h2 class="section-title">Contact Us</h2>
-    <div class="contact-grid">
-      <div class="contact-info">
-        <p>Building long-term relationships with publishers and advertisers is at the core of our vision. We have a whole team of managers ready to assist you.</p>
-        <ul class="contact-list">
-          <li><span class="contact-list-label">Email</span><span class="contact-list-val">info@matchingvisions.com</span></li>
-          <li><span class="contact-list-label">Address</span><span class="contact-list-val">Level 6, St. Julian's Business Centre, Malta</span></li>
-          <li><span class="contact-list-label">Response</span><span class="contact-list-val">Under 24 hours, always</span></li>
-          <li><span class="contact-list-label">GEOs</span><span class="contact-list-val">Nordics, EU, DE, CA, NZ, Asia, LATAM + more</span></li>
-        </ul>
+    <h2 class="section-title">Become a Partner</h2>
+    <p>Whether you are a publisher looking for the best campaigns, or an advertiser wanting quality traffic — we have a whole team ready to assist you.</p>
+    <div class="contact-actions">
+      <a href="https://publisher.matchingvisions.com/signup/" target="_blank" class="btn-contact-primary">Sign Up as Publisher</a>
+      <a href="https://www.matchingvisions.com/#contact" target="_blank" class="btn-contact-secondary">Contact the Team</a>
+    </div>
+    <div class="contact-form">
+      <div class="form-row">
+        <input class="form-input" type="text" placeholder="Your Name" required>
+        <input class="form-input" type="email" placeholder="Your Email" required>
       </div>
-      <div>
-        <form class="contact-form">
-          <input class="form-input" type="text" placeholder="Your Name" required>
-          <input class="form-input" type="email" placeholder="Your Email" required>
-          <input class="form-input" type="text" placeholder="Company">
-          <textarea class="form-textarea" placeholder="Your message..."></textarea>
-          <button class="form-submit" type="submit">Send Message</button>
-        </form>
+      <div class="form-row">
+        <input class="form-input" type="text" placeholder="Company">
+        <select class="form-select">
+          <option value="">I am a...</option>
+          <option>Publisher / Affiliate</option>
+          <option>Casino Operator</option>
+          <option>Sportsbook</option>
+          <option>Other</option>
+        </select>
       </div>
+      <textarea class="form-textarea" placeholder="Tell us about your traffic, markets, or what you are looking for..."></textarea>
+      <button class="form-submit" type="submit">Send Message</button>
     </div>
   </div>
-
-</main>
+</div>
 
 <!-- FOOTER -->
 <footer>
   <div class="footer-inner">
-    <div class="footer-logo">Matching<span>Visions</span>.ai</div>
-    <div class="footer-disclaimer">
-      MatchingVisions.ai is an independent affiliate network. We may earn a commission when you click links and deposit at a listed casino. All bonuses subject to T&Cs. 18+ only. Gambling may not be permitted in all jurisdictions. If gambling is causing harm, visit <a href="https://www.begambleaware.org" style="color:var(--accent)">BeGambleAware.org</a>.
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo">Matching<span>Visions</span>.ai</div>
+        <div class="footer-tagline">Elite iGaming Affiliate Network · Malta</div>
+      </div>
+      <div class="footer-links-col">
+        <h4>Navigation</h4>
+        <a href="#affiliates">Portfolio</a>
+        <a href="#why">Why Us</a>
+        <a href="#casinos">Casino Reviews</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="footer-links-col">
+        <h4>Matching Visions</h4>
+        <a href="https://www.matchingvisions.com" target="_blank">Main Website</a>
+        <a href="https://publisher.matchingvisions.com/signup/" target="_blank">Publisher Sign Up</a>
+        <a href="https://publisher.matchingvisions.com/login" target="_blank">Publisher Login</a>
+        <a href="https://matchingvisions.com/privacy-policy" target="_blank">Privacy Policy</a>
+      </div>
+      <div class="footer-links-col">
+        <h4>Social</h4>
+        <a href="https://www.facebook.com/matchingvisions" target="_blank">Facebook</a>
+        <a href="http://www.linkedin.com/company/matchingvisions-com" target="_blank">LinkedIn</a>
+        <a href="https://www.instagram.com/matchingvisions/" target="_blank">Instagram</a>
+        <a href="https://twitter.com/MatchingVisions" target="_blank">Twitter / X</a>
+      </div>
     </div>
-    <div class="footer-links">
-      <a href="#">Home</a>
-      <a href="#portfolio">Portfolio</a>
-      <a href="#casinos">Casino Reviews</a>
-      <a href="#contact">Contact</a>
-      <a href="#">Privacy Policy</a>
+    <div class="footer-bottom">
+      <div class="footer-disclaimer">MatchingVisions.ai is an independent affiliate network. We may earn commission when you click links and deposit at listed casinos. All bonuses subject to T&Cs. 18+ only. If gambling is causing harm, visit <a href="https://www.begambleaware.org" style="color:rgba(255,255,255,0.5)">BeGambleAware.org</a>. © 2026 MatchingVisions · Level 6, St. Julian's Business Centre, Malta</div>
+      <div class="footer-badges">
+        <span class="footer-badge">18+ Only</span>
+        <span class="footer-badge">Play Responsibly</span>
+        <span class="footer-badge">GamCare</span>
+      </div>
     </div>
-    <div class="footer-badges">
-      <span class="footer-badge">✓ 18+ Only</span>
-      <span class="footer-badge">✓ Play Responsibly</span>
-      <span class="footer-badge">✓ GamCare</span>
-      <span class="footer-badge">✓ BeGambleAware</span>
-    </div>
-    <p style="font-size:11px;color:var(--muted);margin-top:16px;">© 2026 MatchingVisions.ai — Level 6, St. Julian's Business Centre, Malta</p>
   </div>
 </footer>
 
+<!-- MODAL -->
+<div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
+  <div class="modal" id="modal-box">
+    <div class="modal-close" onclick="closeModalDirect()">✕</div>
+    <div class="modal-header">
+      <img class="modal-photo" id="modal-photo" src="" alt="">
+      <div>
+        <div class="modal-name" id="modal-name"></div>
+        <div class="modal-role" id="modal-role"></div>
+      </div>
+    </div>
+    <div class="modal-tags" id="modal-tags"></div>
+    <div class="modal-bio" id="modal-bio"></div>
+    <div class="modal-details" id="modal-details"></div>
+    <div class="modal-cta" id="modal-cta"></div>
+  </div>
+</div>
+
+<script>
+const affiliates = {
+  nina: {
+    name: "Nina Plut",
+    role: "Affiliate Manager",
+    photo: "https://matchingvisions.com/wp-content/uploads/2024/01/nina.png",
+    tags: ["SEO","Casino","Nordics","Finland","Sweden","Norway"],
+    bio: "Nina specialises in Nordic casino markets with a deep focus on Finland, Sweden, and Norway. Her expertise spans SEO-driven affiliate traffic and long-term brand partnerships built on performance and trust.",
+    details: [
+      {label:"Experience",val:"Casino Affiliate Management"},
+      {label:"Traffic Expertise",val:"SEO, Content"},
+      {label:"Key Markets",val:"FI, SE, NO, DK"},
+      {label:"Verticals",val:"Casino, Slots"},
+      {label:"Languages",val:"English, Slovenian"},
+      {label:"Partnership Style",val:"Long-term, performance-based"}
+    ],
+    email: "nina@matchingvisions.com"
+  },
+  sam: {
+    name: "Samantha Mathey",
+    role: "Affiliate Manager",
+    photo: "https://matchingvisions.com/wp-content/uploads/2024/12/sam.jpg",
+    tags: ["UK","Canada","Australia","New Zealand","Casino","Sportsbook"],
+    bio: "Samantha manages a broad portfolio of English-speaking and European GEOs, with strong relationships across casino and sportsbook brands. She focuses on matching the right affiliate traffic with the right brand at the right commercial model.",
+    details: [
+      {label:"Experience",val:"Multi-market Affiliate Management"},
+      {label:"Traffic Expertise",val:"SEO, PPC, Social"},
+      {label:"Key Markets",val:"UK, CA, AU, NZ"},
+      {label:"Verticals",val:"Casino, Sportsbook"},
+      {label:"Languages",val:"English, French"},
+      {label:"Partnership Style",val:"Flexible, brand-focused"}
+    ],
+    email: "sam@matchingvisions.com"
+  },
+  eray: {
+    name: "Eray Esen",
+    role: "Senior Affiliate Manager",
+    photo: "https://matchingvisions.com/wp-content/uploads/2021/05/eray.png",
+    tags: ["DACH","Germany","Austria","Switzerland","PPC","SEO"],
+    bio: "Eray is our DACH market specialist with extensive experience in German-speaking casino affiliate traffic. He manages a network of high-quality PPC and SEO affiliates across DE, AT, and CH, with a strong commercial understanding of the regulated markets.",
+    details: [
+      {label:"Experience",val:"Senior Affiliate Management"},
+      {label:"Traffic Expertise",val:"PPC, SEO"},
+      {label:"Key Markets",val:"DE, AT, CH, Southern EU"},
+      {label:"Verticals",val:"Casino, Sports"},
+      {label:"Languages",val:"English, Turkish, German"},
+      {label:"Partnership Style",val:"Data-driven, commercial"}
+    ],
+    email: "eray@matchingvisions.com"
+  },
+  dennis: {
+    name: "Dennis Dyhr-Hansen",
+    role: "Affiliate Director",
+    photo: "https://matchingvisions.com/new_website/wp-content/uploads/2019/09/dennis_square1.jpg",
+    tags: ["Director","Global","Strategy","Nordics","DACH","LATAM"],
+    bio: "Dennis is the founding force behind Matching Visions with 12+ years of experience in iGaming affiliate strategy. He oversees global expansion, key brand partnerships, and the overall direction of the network across all GEOs.",
+    details: [
+      {label:"Experience",val:"12+ Years in iGaming"},
+      {label:"Focus",val:"Strategy & Global Growth"},
+      {label:"Key Markets",val:"Global — all GEOs"},
+      {label:"Verticals",val:"Casino, Sports, Emerging"},
+      {label:"Languages",val:"English, Danish"},
+      {label:"Partnership Style",val:"Strategic, long-term"}
+    ],
+    email: "dennis@matchingvisions.com"
+  }
+};
+
+function openModal(key) {
+  const a = affiliates[key];
+  if (!a) return;
+  document.getElementById('modal-photo').src = a.photo;
+  document.getElementById('modal-name').textContent = a.name;
+  document.getElementById('modal-role').textContent = a.role;
+  document.getElementById('modal-tags').innerHTML = a.tags.map(t => `<span class="modal-tag">${t}</span>`).join('');
+  document.getElementById('modal-bio').textContent = a.bio;
+  document.getElementById('modal-details').innerHTML = a.details.map(d => `<div class="modal-detail"><div class="modal-detail-label">${d.label}</div><div class="modal-detail-val">${d.val}</div></div>`).join('');
+  document.getElementById('modal-cta').innerHTML = `<a href="mailto:${a.email}" class="modal-btn-primary">Email ${a.name.split(' ')[0]} →</a><a href="https://www.matchingvisions.com/#contact" target="_blank" class="modal-btn-secondary">Contact via Main Site</a>`;
+  document.getElementById('modal-overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal(e) {
+  if (e.target === document.getElementById('modal-overlay')) closeModalDirect();
+}
+
+function closeModalDirect() {
+  document.getElementById('modal-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModalDirect(); });
+</script>
 </body>
 </html>
