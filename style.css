@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@600;700&display=swap');
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --indigo-950:#0B0F3B;--indigo-900:#131760;--indigo-800:#1A1E72;--indigo-700:#1E2370;
+  --indigo-950:#0E1245;--indigo-900:#161B6B;--indigo-800:#1E2480;--indigo-700:#252D99;
   --indigo-600:#2530A0;--indigo-500:#2E3FBF;--indigo-400:#4B5FE0;--indigo-300:#7B8FF0;
   --gold:#C9922A;--gold-2:#E0A830;
   --white:#FFFFFF;
@@ -12,7 +12,7 @@
   --shadow:0 2px 8px rgba(0,0,0,0.3);--shadow-lg:0 8px 32px rgba(0,0,0,0.4);
 }
 html{scroll-behavior:smooth}
-body{font-family:'Inter',sans-serif;background:var(--indigo-950);color:var(--white);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100vh}
+body{font-family:'Inter',sans-serif;background:#0E1245;color:var(--white);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100vh}
 a{color:inherit;text-decoration:none}
 
 /* NAV */
