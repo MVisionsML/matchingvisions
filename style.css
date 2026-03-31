@@ -50,7 +50,7 @@ nav{background:rgba(15,60,140,0.92);backdrop-filter:blur(16px);border-bottom:1px
 .section-sub{font-size:14px;color:rgba(255,255,255,0.7);font-weight:300;margin-bottom:36px}
 
 .team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
-.team-card{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.18);border-radius:var(--radius-lg);padding:32px 24px;text-align:center;cursor:pointer;transition:all 0.25s;position:relative;overflow:hidden;display:block;backdrop-filter:blur(8px)}
+.team-card{background:rgba(0,20,80,0.35);border:1px solid rgba(255,255,255,0.18);border-radius:var(--radius-lg);padding:32px 24px;text-align:center;cursor:pointer;transition:all 0.25s;position:relative;overflow:hidden;display:block;backdrop-filter:blur(8px)}
 .team-card:hover{background:rgba(255,255,255,0.18);border-color:rgba(255,255,255,0.35);transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,0.2)}
 .team-photo{width:100px;height:100px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,0.4);margin:0 auto 18px;display:block}
 .team-name{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:700;color:var(--white);margin-bottom:4px}
