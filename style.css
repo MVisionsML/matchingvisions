@@ -38,13 +38,13 @@ nav{background:rgba(15,60,140,0.92);backdrop-filter:blur(16px);border-bottom:1px
 .hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,5vw,56px);font-weight:700;color:var(--white);line-height:1.1;margin-bottom:14px}
 .hero h1 span{color:var(--gold-2)}
 .hero p{font-size:16px;color:rgba(255,255,255,0.85);font-weight:300;max-width:560px;margin:0 auto 24px}
-.hero-divider{width:60px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0 auto 12px}
-.stats-row{display:flex;justify-content:center;gap:48px;flex-wrap:wrap;margin-top:16px;margin-bottom:0}
+.hero-divider{width:60px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0 auto 8px}
+.stats-row{display:flex;justify-content:center;gap:48px;flex-wrap:wrap;margin-top:8px;margin-bottom:0;padding-bottom:0}
 .stat-item{text-align:center}
 .stat-num{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:700;color:var(--white);line-height:1}
 .stat-label{font-size:11px;color:rgba(255,255,255,0.65);text-transform:uppercase;letter-spacing:1.5px;margin-top:4px}
 
-.section{padding:56px 40px}
+.section{padding:40px 40px}
 .section-inner{max-width:1200px;margin:0 auto}
 .section-label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:2px;color:var(--gold-2);margin-bottom:10px}
 .section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(24px,3vw,36px);font-weight:700;color:var(--white);margin-bottom:8px}
