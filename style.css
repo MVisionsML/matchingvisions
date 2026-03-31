@@ -62,7 +62,7 @@ nav{background:rgba(15,60,140,0.92);backdrop-filter:blur(16px);border-bottom:1px
 .team-cta:hover{background:var(--gold-2)}
 
 .why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-.why-card{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.15);border-radius:var(--radius);padding:24px;backdrop-filter:blur(8px);transition:background 0.2s}
+.why-card{background:rgba(0,20,80,0.35);border:1px solid rgba(255,255,255,0.15);border-radius:var(--radius);padding:24px;backdrop-filter:blur(8px);transition:background 0.2s}
 .why-card:hover{background:rgba(255,255,255,0.16)}
 .why-icon{font-size:24px;margin-bottom:12px}
 .why-title{font-weight:600;font-size:15px;color:var(--white);margin-bottom:6px}
@@ -73,7 +73,7 @@ nav{background:rgba(15,60,140,0.92);backdrop-filter:blur(16px);border-bottom:1px
 .brand-pill:hover{background:rgba(255,255,255,0.18);color:var(--white)}
 
 .test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.test-card{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.15);border-radius:var(--radius);padding:24px;backdrop-filter:blur(8px)}
+.test-card{background:rgba(0,20,80,0.35);border:1px solid rgba(255,255,255,0.15);border-radius:var(--radius);padding:24px;backdrop-filter:blur(8px)}
 .test-text{font-size:13px;color:rgba(255,255,255,0.8);line-height:1.7;font-style:italic;margin-bottom:14px;border-left:2px solid var(--gold);padding-left:14px}
 .test-brand{font-size:12px;font-weight:700;color:var(--gold-2)}
 
@@ -155,7 +155,7 @@ footer{background:rgba(10,40,100,0.6);border-top:1px solid rgba(255,255,255,0.1)
 .geo-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;color:var(--white)}
 .geo-count{font-size:11px;color:rgba(255,255,255,0.6);background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);padding:3px 10px;border-radius:20px}
 
-.site-card{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);border-radius:var(--radius);margin-bottom:10px;transition:all 0.2s;backdrop-filter:blur(4px)}
+.site-card{background:rgba(0,20,80,0.3);border:1px solid rgba(255,255,255,0.12);border-radius:var(--radius);margin-bottom:10px;transition:all 0.2s;backdrop-filter:blur(4px)}
 .site-card:hover{background:rgba(255,255,255,0.14);border-color:rgba(255,255,255,0.25)}
 .site-row{display:grid;grid-template-columns:1fr auto auto auto auto;gap:16px;align-items:center;padding:16px 20px}
 .site-url{font-weight:600;font-size:14px;color:var(--white)}
@@ -173,7 +173,7 @@ footer{background:rgba(10,40,100,0.6);border-top:1px solid rgba(255,255,255,0.1)
 .detail-btn{background:rgba(201,146,42,0.15);color:var(--gold-2);border:1px solid rgba(201,146,42,0.3);font-size:12px;font-weight:600;padding:8px 16px;border-radius:7px;cursor:pointer;transition:all 0.2s;white-space:nowrap;font-family:'Inter',sans-serif}
 .detail-btn:hover{background:var(--gold);color:#0B1A3B;border-color:var(--gold)}
 
-.casino-card{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.15);border-radius:var(--radius-lg);padding:24px;margin-bottom:16px;transition:all 0.2s;backdrop-filter:blur(8px)}
+.casino-card{background:rgba(0,20,80,0.35);border:1px solid rgba(255,255,255,0.15);border-radius:var(--radius-lg);padding:24px;margin-bottom:16px;transition:all 0.2s;backdrop-filter:blur(8px)}
 .casino-card:hover{background:rgba(255,255,255,0.15);border-color:rgba(255,255,255,0.25)}
 .casino-top{display:flex;align-items:flex-start;gap:16px;margin-bottom:16px}
 .casino-rank{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:700;color:rgba(255,255,255,0.2);line-height:1;min-width:36px}
