@@ -94,6 +94,79 @@
   </div>
 </div>
 
+<!-- PACKAGES MODAL -->
+<div class="modal-overlay" id="pkg-modal">
+  <div class="modal" style="max-width:560px">
+    <div class="modal-close" onclick="closePkgModal()">✕</div>
+    <div class="modal-site" id="pkg-modal-label"></div>
+    <div class="modal-title" id="pkg-modal-title"></div>
+    <p style="font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:20px">Tell us your target GEOs and preferred player profile and we will match you with the right affiliates from our network.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px">
+      <input id="pkg-name" style="background:var(--indigo-900);border:1px solid var(--border);border-radius:8px;padding:11px 14px;font-size:14px;font-family:Inter,sans-serif;color:white;outline:none;width:100%" placeholder="Your Name">
+      <input id="pkg-email" type="email" style="background:var(--indigo-900);border:1px solid var(--border);border-radius:8px;padding:11px 14px;font-size:14px;font-family:Inter,sans-serif;color:white;outline:none;width:100%" placeholder="Email">
+    </div>
+    <input id="pkg-company" style="background:var(--indigo-900);border:1px solid var(--border);border-radius:8px;padding:11px 14px;font-size:14px;font-family:Inter,sans-serif;color:white;outline:none;width:100%;display:block;margin-bottom:10px" placeholder="Company">
+    <input id="pkg-geos" style="background:var(--indigo-900);border:1px solid var(--border);border-radius:8px;padding:11px 14px;font-size:14px;font-family:Inter,sans-serif;color:white;outline:none;width:100%;display:block;margin-bottom:10px" placeholder="Target GEOs (e.g. FI, SE, DE, UK)">
+    <select id="pkg-budget" style="background:var(--indigo-900);border:1px solid var(--border);border-radius:8px;padding:11px 14px;font-size:14px;font-family:Inter,sans-serif;color:rgba(255,255,255,0.6);outline:none;width:100%;display:block;margin-bottom:10px">
+      <option value="">Monthly Budget</option>
+      <option>€5,000</option><option>€10,000</option><option>€20,000</option><option>€50,000+</option>
+    </select>
+    <textarea id="pkg-message" style="background:var(--indigo-900);border:1px solid var(--border);border-radius:8px;padding:11px 14px;font-size:14px;font-family:Inter,sans-serif;color:white;outline:none;resize:vertical;min-height:80px;width:100%;display:block;margin-bottom:14px" placeholder="Message (optional)"></textarea>
+    <button class="btn-gold" style="width:100%" onclick="closePkgModal()">Send Enquiry</button>
+  </div>
+</div>
+
+<!-- PACKAGES SECTION -->
+<div class="section" id="packages" style="background:rgba(22,25,84,0.2);border-top:1px solid rgba(255,255,255,0.04)">
+  <div class="section-inner">
+    <p class="section-label">Partnership Packages</p>
+    <h2 class="section-title">Choose Your Package</h2>
+    <p class="section-sub">Guaranteed FTDs delivered through our verified affiliate network across your target GEOs</p>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:8px">
+
+      <!-- SILVER -->
+      <div style="background:var(--indigo-900);border:1px solid rgba(156,163,175,0.25);border-radius:var(--radius-lg);padding:32px 28px;display:flex;flex-direction:column">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px">
+          <span style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;background:rgba(156,163,175,0.1);border:1px solid rgba(156,163,175,0.25);color:#9CA3AF;padding:4px 12px;border-radius:20px">Starter</span>
+        </div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:700;color:#9CA3AF;margin-bottom:4px">Silver</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:700;color:white;line-height:1;margin-bottom:6px">€5,000</div>
+        <div style="font-size:13px;color:var(--muted);margin-bottom:20px">50 Guaranteed FTDs</div>
+        <div style="width:40px;height:2px;background:linear-gradient(90deg,#9CA3AF,transparent);margin-bottom:20px"></div>
+        <p style="font-size:13px;color:var(--muted);line-height:1.7;flex:1;margin-bottom:24px">Perfect for brands testing new GEOs or looking to validate traffic quality before scaling.</p>
+        <button style="width:100%;background:rgba(156,163,175,0.15);color:#9CA3AF;border:1px solid rgba(156,163,175,0.3);font-size:13px;font-weight:700;padding:11px 24px;border-radius:8px;cursor:pointer;font-family:'Inter',sans-serif;transition:all 0.2s" onclick="openPkgModal('Silver')">Get Started →</button>
+      </div>
+
+      <!-- GOLD -->
+      <div style="background:var(--indigo-900);border:2px solid rgba(224,168,48,0.6);border-radius:var(--radius-lg);padding:32px 28px;display:flex;flex-direction:column;position:relative;box-shadow:0 0 32px rgba(224,168,48,0.1)">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px">
+          <span style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;background:rgba(224,168,48,0.15);border:1px solid rgba(224,168,48,0.4);color:var(--gold-2);padding:4px 12px;border-radius:20px">Most Popular</span>
+        </div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:700;color:var(--gold-2);margin-bottom:4px">Gold</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:700;color:white;line-height:1;margin-bottom:6px">€10,000</div>
+        <div style="font-size:13px;color:var(--muted);margin-bottom:20px">100 Guaranteed FTDs</div>
+        <div style="width:40px;height:2px;background:linear-gradient(90deg,var(--gold-2),transparent);margin-bottom:20px"></div>
+        <p style="font-size:13px;color:var(--muted);line-height:1.7;flex:1;margin-bottom:24px">Our most popular package. Ideal for brands ready to scale across multiple GEOs with proven affiliate sources.</p>
+        <button class="btn-gold" style="width:100%" onclick="openPkgModal('Gold')">Get Started →</button>
+      </div>
+
+      <!-- PLATINUM -->
+      <div style="background:var(--indigo-900);border:1px solid rgba(184,169,201,0.25);border-radius:var(--radius-lg);padding:32px 28px;display:flex;flex-direction:column">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px">
+          <span style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;background:rgba(184,169,201,0.1);border:1px solid rgba(184,169,201,0.25);color:#B8A9C9;padding:4px 12px;border-radius:20px">Premium</span>
+        </div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:700;color:#B8A9C9;margin-bottom:4px">Platinum</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:700;color:white;line-height:1;margin-bottom:6px">€20,000</div>
+        <div style="font-size:13px;color:var(--muted);margin-bottom:20px">150 Guaranteed FTDs</div>
+        <div style="width:40px;height:2px;background:linear-gradient(90deg,#B8A9C9,transparent);margin-bottom:20px"></div>
+        <p style="font-size:13px;color:var(--muted);line-height:1.7;flex:1;margin-bottom:24px">Full-scale campaign management across premium affiliates and top-tier GEOs with dedicated account support.</p>
+        <button style="width:100%;background:rgba(184,169,201,0.15);color:#B8A9C9;border:1px solid rgba(184,169,201,0.3);font-size:13px;font-weight:700;padding:11px 24px;border-radius:8px;cursor:pointer;font-family:'Inter',sans-serif;transition:all 0.2s" onclick="openPkgModal('Platinum')">Get Started →</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
 <div class="section" id="why" style="background:rgba(22,25,84,0.3);border-top:1px solid rgba(255,255,255,0.04);border-bottom:1px solid rgba(255,255,255,0.04)">
   <div class="section-inner">
     <p class="section-label">Why Work With Us</p>
@@ -189,5 +262,21 @@
   </div>
 </footer>
 
+<script>
+function openPkgModal(pkg) {
+  var labels = {Silver:'Partnership Package',Gold:'Partnership Package',Platinum:'Partnership Package'};
+  document.getElementById('pkg-modal-label').textContent = pkg + ' Package';
+  document.getElementById('pkg-modal-title').textContent = pkg + ' Package — Get Started';
+  document.getElementById('pkg-modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closePkgModal() {
+  document.getElementById('pkg-modal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.getElementById('pkg-modal').addEventListener('click', function(e) {
+  if (e.target === this) closePkgModal();
+});
+</script>
 </body>
 </html>
