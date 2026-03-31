@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@600;700&display=swap');
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --indigo-950:#0D0F2B;--indigo-900:#111340;--indigo-800:#161954;--indigo-700:#1E2370;
+  --indigo-950:#0B0F3B;--indigo-900:#131760;--indigo-800:#1A1E72;--indigo-700:#1E2370;
   --indigo-600:#2530A0;--indigo-500:#2E3FBF;--indigo-400:#4B5FE0;--indigo-300:#7B8FF0;
   --gold:#C9922A;--gold-2:#E0A830;
   --white:#FFFFFF;
@@ -43,7 +43,7 @@ nav{background:rgba(13,15,43,0.97);backdrop-filter:blur(16px);border-bottom:1px 
 .stat-label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:1.5px;margin-top:4px}
 
 /* SECTIONS */
-.section{padding:56px 40px}
+.section{padding:56px 40px;background:linear-gradient(135deg,#131760 0%,#0F1350 100%)}
 .section-inner{max-width:1200px;margin:0 auto}
 .section-label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:2px;color:var(--gold);margin-bottom:10px}
 .section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(24px,3vw,36px);font-weight:700;color:var(--white);margin-bottom:8px}

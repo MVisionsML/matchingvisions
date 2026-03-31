@@ -10,9 +10,10 @@
 
 <nav>
   <div class="nav-inner">
-    <div class="nav-logo"><img src="https://matchingvisions.com/new_website/wp-content/uploads/2019/09/logo-header.png" alt="MatchingVisions" style="height:28px;filter:brightness(0) invert(1)"></div>
+    <a href="index.html"><div class="nav-logo"><img src="https://matchingvisions.com/new_website/wp-content/uploads/2019/09/logo-header.png" alt="MatchingVisions" style="height:28px;filter:brightness(0) invert(1)"></div></a>
     <div class="nav-links">
       <a href="#portfolio" class="nav-link active">Portfolio</a>
+      <a href="#packages" class="nav-link">Packages</a>
       <a href="#why" class="nav-link">Why Us</a>
       <a href="casino-reviews.html" class="nav-link">Casino Reviews</a>
       <a href="#contact" class="nav-btn">Contact Us</a>
@@ -94,75 +95,100 @@
   </div>
 </div>
 
-<!-- PACKAGES MODAL -->
-<div class="modal-overlay" id="pkg-modal">
-  <div class="modal" style="max-width:560px">
-    <div class="modal-close" onclick="closePkgModal()">✕</div>
-    <div class="modal-site" id="pkg-modal-label"></div>
-    <div class="modal-title" id="pkg-modal-title"></div>
-    <p style="font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:20px">Tell us your target GEOs and preferred player profile and we will match you with the right affiliates from our network.</p>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px">
-      <input id="pkg-name" style="background:var(--indigo-900);border:1px solid var(--border);border-radius:8px;padding:11px 14px;font-size:14px;font-family:Inter,sans-serif;color:white;outline:none;width:100%" placeholder="Your Name">
-      <input id="pkg-email" type="email" style="background:var(--indigo-900);border:1px solid var(--border);border-radius:8px;padding:11px 14px;font-size:14px;font-family:Inter,sans-serif;color:white;outline:none;width:100%" placeholder="Email">
-    </div>
-    <input id="pkg-company" style="background:var(--indigo-900);border:1px solid var(--border);border-radius:8px;padding:11px 14px;font-size:14px;font-family:Inter,sans-serif;color:white;outline:none;width:100%;display:block;margin-bottom:10px" placeholder="Company">
-    <input id="pkg-geos" style="background:var(--indigo-900);border:1px solid var(--border);border-radius:8px;padding:11px 14px;font-size:14px;font-family:Inter,sans-serif;color:white;outline:none;width:100%;display:block;margin-bottom:10px" placeholder="Target GEOs (e.g. FI, SE, DE, UK)">
-    <select id="pkg-budget" style="background:var(--indigo-900);border:1px solid var(--border);border-radius:8px;padding:11px 14px;font-size:14px;font-family:Inter,sans-serif;color:rgba(255,255,255,0.6);outline:none;width:100%;display:block;margin-bottom:10px">
-      <option value="">Monthly Budget</option>
-      <option>€5,000</option><option>€10,000</option><option>€20,000</option><option>€50,000+</option>
-    </select>
-    <textarea id="pkg-message" style="background:var(--indigo-900);border:1px solid var(--border);border-radius:8px;padding:11px 14px;font-size:14px;font-family:Inter,sans-serif;color:white;outline:none;resize:vertical;min-height:80px;width:100%;display:block;margin-bottom:14px" placeholder="Message (optional)"></textarea>
-    <button class="btn-gold" style="width:100%" onclick="closePkgModal()">Send Enquiry</button>
-  </div>
-</div>
-
-<!-- PACKAGES SECTION -->
-<div class="section" id="packages" style="background:rgba(22,25,84,0.2);border-top:1px solid rgba(255,255,255,0.04)">
+<!-- PACKAGES -->
+<div class="section" id="packages" style="background:linear-gradient(135deg,rgba(30,35,120,0.5) 0%,rgba(15,19,80,0.3) 100%);border-top:1px solid rgba(255,255,255,0.04);border-bottom:1px solid rgba(255,255,255,0.04)">
   <div class="section-inner">
     <p class="section-label">Partnership Packages</p>
     <h2 class="section-title">Choose Your Package</h2>
-    <p class="section-sub">Guaranteed FTDs delivered through our verified affiliate network across your target GEOs</p>
+    <p class="section-sub">Guaranteed FTDs delivered through our verified affiliate network across your target GEOs. Click a package to select your affiliate manager and submit your request.</p>
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:8px">
 
       <!-- SILVER -->
-      <div style="background:var(--indigo-900);border:1px solid rgba(156,163,175,0.25);border-radius:var(--radius-lg);padding:32px 28px;display:flex;flex-direction:column">
-        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px">
-          <span style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;background:rgba(156,163,175,0.1);border:1px solid rgba(156,163,175,0.25);color:#9CA3AF;padding:4px 12px;border-radius:20px">Starter</span>
+      <div style="background:linear-gradient(135deg,#131760 0%,#1A1E72 100%);border:1px solid rgba(156,163,175,0.3);border-radius:16px;padding:36px 28px;text-align:center;transition:all 0.25s;cursor:pointer" onmouseover="this.style.transform='translateY(-4px)';this.style.borderColor='rgba(156,163,175,0.7)'" onmouseout="this.style.transform='translateY(0)';this.style.borderColor='rgba(156,163,175,0.3)'">
+        <div style="display:inline-block;background:rgba(156,163,175,0.1);border:1px solid rgba(156,163,175,0.3);color:#9CA3AF;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:4px 14px;border-radius:20px;margin-bottom:20px">Starter</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:700;color:#9CA3AF;line-height:1;margin-bottom:6px">€5,000</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.4);margin-bottom:24px;text-transform:uppercase;letter-spacing:1px">Silver Package</div>
+        <div style="background:rgba(156,163,175,0.08);border-radius:10px;padding:16px;margin-bottom:24px">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:700;color:white;line-height:1">50</div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:1px;margin-top:4px">Guaranteed FTDs</div>
         </div>
-        <div style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:700;color:#9CA3AF;margin-bottom:4px">Silver</div>
-        <div style="font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:700;color:white;line-height:1;margin-bottom:6px">€5,000</div>
-        <div style="font-size:13px;color:var(--muted);margin-bottom:20px">50 Guaranteed FTDs</div>
-        <div style="width:40px;height:2px;background:linear-gradient(90deg,#9CA3AF,transparent);margin-bottom:20px"></div>
-        <p style="font-size:13px;color:var(--muted);line-height:1.7;flex:1;margin-bottom:24px">Perfect for brands testing new GEOs or looking to validate traffic quality before scaling.</p>
-        <button style="width:100%;background:rgba(156,163,175,0.15);color:#9CA3AF;border:1px solid rgba(156,163,175,0.3);font-size:13px;font-weight:700;padding:11px 24px;border-radius:8px;cursor:pointer;font-family:'Inter',sans-serif;transition:all 0.2s" onclick="openPkgModal('Silver')">Get Started →</button>
+        <p style="font-size:13px;color:rgba(255,255,255,0.6);line-height:1.6;margin-bottom:28px">Perfect for brands testing new GEOs or looking to validate traffic quality before scaling up.</p>
+        <button onclick="openPackageModal('Silver','€5,000','50')" style="width:100%;background:rgba(156,163,175,0.15);color:#9CA3AF;border:1px solid rgba(156,163,175,0.4);font-family:'Inter',sans-serif;font-size:13px;font-weight:700;padding:12px;border-radius:8px;cursor:pointer;transition:all 0.2s" onmouseover="this.style.background='#9CA3AF';this.style.color='#0B0F3B'" onmouseout="this.style.background='rgba(156,163,175,0.15)';this.style.color='#9CA3AF'">Get Started →</button>
       </div>
 
       <!-- GOLD -->
-      <div style="background:var(--indigo-900);border:2px solid rgba(224,168,48,0.6);border-radius:var(--radius-lg);padding:32px 28px;display:flex;flex-direction:column;position:relative;box-shadow:0 0 32px rgba(224,168,48,0.1)">
-        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px">
-          <span style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;background:rgba(224,168,48,0.15);border:1px solid rgba(224,168,48,0.4);color:var(--gold-2);padding:4px 12px;border-radius:20px">Most Popular</span>
+      <div style="background:linear-gradient(135deg,#1A1E72 0%,#221A00 100%);border:2px solid rgba(224,168,48,0.6);border-radius:16px;padding:36px 28px;text-align:center;transition:all 0.25s;cursor:pointer;position:relative;box-shadow:0 0 40px rgba(224,168,48,0.1)" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 8px 40px rgba(224,168,48,0.2)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 0 40px rgba(224,168,48,0.1)'">
+        <div style="position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:#E0A830;color:#0B0F3B;font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:4px 18px;border-radius:20px;white-space:nowrap">⭐ Most Popular</div>
+        <div style="display:inline-block;background:rgba(224,168,48,0.1);border:1px solid rgba(224,168,48,0.3);color:#E0A830;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:4px 14px;border-radius:20px;margin-bottom:20px;margin-top:10px">Gold</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:700;color:#E0A830;line-height:1;margin-bottom:6px">€10,000</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.4);margin-bottom:24px;text-transform:uppercase;letter-spacing:1px">Gold Package</div>
+        <div style="background:rgba(224,168,48,0.08);border-radius:10px;padding:16px;margin-bottom:24px">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:700;color:white;line-height:1">100</div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:1px;margin-top:4px">Guaranteed FTDs</div>
         </div>
-        <div style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:700;color:var(--gold-2);margin-bottom:4px">Gold</div>
-        <div style="font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:700;color:white;line-height:1;margin-bottom:6px">€10,000</div>
-        <div style="font-size:13px;color:var(--muted);margin-bottom:20px">100 Guaranteed FTDs</div>
-        <div style="width:40px;height:2px;background:linear-gradient(90deg,var(--gold-2),transparent);margin-bottom:20px"></div>
-        <p style="font-size:13px;color:var(--muted);line-height:1.7;flex:1;margin-bottom:24px">Our most popular package. Ideal for brands ready to scale across multiple GEOs with proven affiliate sources.</p>
-        <button class="btn-gold" style="width:100%" onclick="openPkgModal('Gold')">Get Started →</button>
+        <p style="font-size:13px;color:rgba(255,255,255,0.6);line-height:1.6;margin-bottom:28px">Our most popular package. Ideal for brands ready to scale across multiple GEOs with proven affiliate sources.</p>
+        <button onclick="openPackageModal('Gold','€10,000','100')" style="width:100%;background:#E0A830;color:#0B0F3B;border:none;font-family:'Inter',sans-serif;font-size:13px;font-weight:700;padding:12px;border-radius:8px;cursor:pointer;transition:all 0.2s" onmouseover="this.style.background='#C9922A'" onmouseout="this.style.background='#E0A830'">Get Started →</button>
       </div>
 
       <!-- PLATINUM -->
-      <div style="background:var(--indigo-900);border:1px solid rgba(184,169,201,0.25);border-radius:var(--radius-lg);padding:32px 28px;display:flex;flex-direction:column">
-        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px">
-          <span style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px;background:rgba(184,169,201,0.1);border:1px solid rgba(184,169,201,0.25);color:#B8A9C9;padding:4px 12px;border-radius:20px">Premium</span>
+      <div style="background:linear-gradient(135deg,#131760 0%,#1A1245 100%);border:1px solid rgba(184,169,201,0.3);border-radius:16px;padding:36px 28px;text-align:center;transition:all 0.25s;cursor:pointer" onmouseover="this.style.transform='translateY(-4px)';this.style.borderColor='rgba(184,169,201,0.7)'" onmouseout="this.style.transform='translateY(0)';this.style.borderColor='rgba(184,169,201,0.3)'">
+        <div style="display:inline-block;background:rgba(184,169,201,0.1);border:1px solid rgba(184,169,201,0.3);color:#B8A9C9;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:4px 14px;border-radius:20px;margin-bottom:20px">Premium</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:700;color:#B8A9C9;line-height:1;margin-bottom:6px">€20,000</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.4);margin-bottom:24px;text-transform:uppercase;letter-spacing:1px">Platinum Package</div>
+        <div style="background:rgba(184,169,201,0.08);border-radius:10px;padding:16px;margin-bottom:24px">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:700;color:white;line-height:1">150</div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:1px;margin-top:4px">Guaranteed FTDs</div>
         </div>
-        <div style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:700;color:#B8A9C9;margin-bottom:4px">Platinum</div>
-        <div style="font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:700;color:white;line-height:1;margin-bottom:6px">€20,000</div>
-        <div style="font-size:13px;color:var(--muted);margin-bottom:20px">150 Guaranteed FTDs</div>
-        <div style="width:40px;height:2px;background:linear-gradient(90deg,#B8A9C9,transparent);margin-bottom:20px"></div>
-        <p style="font-size:13px;color:var(--muted);line-height:1.7;flex:1;margin-bottom:24px">Full-scale campaign management across premium affiliates and top-tier GEOs with dedicated account support.</p>
-        <button style="width:100%;background:rgba(184,169,201,0.15);color:#B8A9C9;border:1px solid rgba(184,169,201,0.3);font-size:13px;font-weight:700;padding:11px 24px;border-radius:8px;cursor:pointer;font-family:'Inter',sans-serif;transition:all 0.2s" onclick="openPkgModal('Platinum')">Get Started →</button>
+        <p style="font-size:13px;color:rgba(255,255,255,0.6);line-height:1.6;margin-bottom:28px">Full-scale campaign management across premium affiliates and top-tier GEOs with dedicated account support.</p>
+        <button onclick="openPackageModal('Platinum','€20,000','150')" style="width:100%;background:rgba(184,169,201,0.15);color:#B8A9C9;border:1px solid rgba(184,169,201,0.4);font-family:'Inter',sans-serif;font-size:13px;font-weight:700;padding:12px;border-radius:8px;cursor:pointer;transition:all 0.2s" onmouseover="this.style.background='#B8A9C9';this.style.color='#0B0F3B'" onmouseout="this.style.background='rgba(184,169,201,0.15)';this.style.color='#B8A9C9'">Get Started →</button>
       </div>
 
+    </div>
+  </div>
+</div>
+
+<!-- PACKAGE MODAL -->
+<div id="pkg-modal-overlay" style="position:fixed;inset:0;background:rgba(5,5,20,0.88);backdrop-filter:blur(8px);z-index:500;display:flex;align-items:center;justify-content:center;padding:24px;opacity:0;pointer-events:none;transition:opacity 0.3s" onclick="closePkgModal(event)">
+  <div style="background:#161954;border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:36px;max-width:560px;width:100%;max-height:90vh;overflow-y:auto;box-shadow:0 8px 32px rgba(0,0,0,0.4);transform:translateY(16px);transition:transform 0.3s;position:relative" id="pkg-modal-box">
+    <div onclick="closePkgModalDirect()" style="position:absolute;top:16px;right:16px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:50%;width:32px;height:32px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:14px;color:rgba(255,255,255,0.5)">✕</div>
+    <div id="pkg-modal-badge" style="display:inline-block;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:4px 14px;border-radius:20px;margin-bottom:12px"></div>
+    <div id="pkg-modal-title" style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:700;color:white;margin-bottom:6px"></div>
+    <div id="pkg-modal-sub" style="font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:24px"></div>
+    <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:16px;margin-bottom:24px;font-size:13px;color:rgba(255,255,255,0.7);line-height:1.6">
+      Select your preferred affiliate manager below. Your enquiry will be sent directly to them so they can match you with the right affiliate sources for your target GEOs.
+    </div>
+    <div style="display:grid;gap:14px">
+      <div>
+        <label style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:rgba(255,255,255,0.4);display:block;margin-bottom:8px">Your Name</label>
+        <input id="pkg-name" type="text" placeholder="Your name" style="width:100%;background:#0F1350;border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:11px 14px;font-size:14px;font-family:Inter,sans-serif;color:white;outline:none">
+      </div>
+      <div>
+        <label style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:rgba(255,255,255,0.4);display:block;margin-bottom:8px">Email</label>
+        <input id="pkg-email" type="email" placeholder="your@email.com" style="width:100%;background:#0F1350;border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:11px 14px;font-size:14px;font-family:Inter,sans-serif;color:white;outline:none">
+      </div>
+      <div>
+        <label style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:rgba(255,255,255,0.4);display:block;margin-bottom:8px">Company / Brand</label>
+        <input id="pkg-company" type="text" placeholder="Casino brand name" style="width:100%;background:#0F1350;border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:11px 14px;font-size:14px;font-family:Inter,sans-serif;color:white;outline:none">
+      </div>
+      <div>
+        <label style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:rgba(255,255,255,0.4);display:block;margin-bottom:8px">Select Affiliate Manager</label>
+        <select id="pkg-manager" style="width:100%;background:#0F1350;border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:11px 14px;font-size:14px;font-family:Inter,sans-serif;color:white;outline:none;appearance:none">
+          <option value="">-- Choose a manager --</option>
+          <option value="nina@matchingvisions.com" data-name="Nina Plut">Nina Plut — FI, SE, NO, UK, CA, DE, NL, AU, NZ</option>
+          <option value="sam@matchingvisions.com" data-name="Samantha Mathey">Samantha Mathey — UK, CA, AU, NZ, IE, SE</option>
+          <option value="eray@matchingvisions.com" data-name="Eray Esen">Eray Esen — DE, AT, CH, UK, CA (DACH specialist)</option>
+          <option value="leanne@matchingvisions.com" data-name="Leanne Muleba">Leanne Muleba — Global / Strategic Partnerships</option>
+        </select>
+      </div>
+      <div>
+        <label style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:rgba(255,255,255,0.4);display:block;margin-bottom:8px">Target GEOs</label>
+        <input id="pkg-geos" type="text" placeholder="e.g. FI, SE, DE, UK" style="width:100%;background:#0F1350;border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:11px 14px;font-size:14px;font-family:Inter,sans-serif;color:white;outline:none">
+      </div>
+      <div>
+        <label style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:rgba(255,255,255,0.4);display:block;margin-bottom:8px">Message</label>
+        <textarea id="pkg-message" rows="3" placeholder="Tell us about your brand, target players, or any specific requirements..." style="width:100%;background:#0F1350;border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:11px 14px;font-size:14px;font-family:Inter,sans-serif;color:white;outline:none;resize:vertical"></textarea>
+      </div>
+      <button id="pkg-submit" onclick="submitPackage()" style="width:100%;background:#E0A830;color:#0B0F3B;border:none;font-family:Inter,sans-serif;font-size:14px;font-weight:700;padding:13px;border-radius:8px;cursor:pointer;transition:background 0.2s;margin-top:4px">Send Enquiry</button>
     </div>
   </div>
 </div>
@@ -231,8 +257,8 @@
   <div class="footer-inner">
     <div class="footer-top">
       <div>
-        <div class="footer-logo-txt">Matching<span>Visions</span>.ai</div>
-        <div class="footer-tagline">Elite iGaming Affiliate Network · Malta</div>
+        <a href="#"><img src="https://matchingvisions.com/new_website/wp-content/uploads/2019/09/logo-header.png" alt="MatchingVisions" style="height:24px;filter:brightness(0) invert(1)"></a>
+        <div class="footer-tagline">Elite iGaming Affiliate Network</div>
       </div>
       <div class="footer-col">
         <h4>Navigation</h4>
@@ -243,8 +269,6 @@
       </div>
       <div class="footer-col">
         <h4>Matching Visions</h4>
-        <a href="https://www.matchingvisions.com" target="_blank" rel="nofollow">Main Website</a>
-        <a href="https://publisher.matchingvisions.com/login" target="_blank">Publisher Login</a>
         <a href="https://matchingvisions.com/privacy-policy" target="_blank">Privacy Policy</a>
       </div>
       <div class="footer-col">
@@ -263,20 +287,52 @@
 </footer>
 
 <script>
-function openPkgModal(pkg) {
-  var labels = {Silver:'Partnership Package',Gold:'Partnership Package',Platinum:'Partnership Package'};
-  document.getElementById('pkg-modal-label').textContent = pkg + ' Package';
-  document.getElementById('pkg-modal-title').textContent = pkg + ' Package — Get Started';
-  document.getElementById('pkg-modal').classList.add('open');
-  document.body.style.overflow = 'hidden';
+var currentPackage='',currentPrice='',currentFTDs='';
+function openPackageModal(pkg,price,ftds){
+  currentPackage=pkg;currentPrice=price;currentFTDs=ftds;
+  var colors={Silver:'#9CA3AF',Gold:'#E0A830',Platinum:'#B8A9C9'};
+  var col=colors[pkg]||'#E0A830';
+  var r=parseInt(col.slice(1,3),16),g=parseInt(col.slice(3,5),16),b=parseInt(col.slice(5,7),16);
+  var rgb=r+','+g+','+b;
+  var badge=document.getElementById('pkg-modal-badge');
+  badge.textContent=pkg+' Package';
+  badge.style.background='rgba('+rgb+',0.1)';
+  badge.style.border='1px solid rgba('+rgb+',0.3)';
+  badge.style.color=col;
+  document.getElementById('pkg-modal-title').textContent=pkg+' Package — '+price;
+  document.getElementById('pkg-modal-sub').textContent=ftds+' Guaranteed FTDs';
+  var overlay=document.getElementById('pkg-modal-overlay');
+  overlay.style.opacity='1';overlay.style.pointerEvents='all';
+  document.getElementById('pkg-modal-box').style.transform='translateY(0)';
+  document.body.style.overflow='hidden';
 }
-function closePkgModal() {
-  document.getElementById('pkg-modal').classList.remove('open');
-  document.body.style.overflow = '';
+function closePkgModal(e){if(e.target===document.getElementById('pkg-modal-overlay'))closePkgModalDirect();}
+function closePkgModalDirect(){
+  var overlay=document.getElementById('pkg-modal-overlay');
+  overlay.style.opacity='0';overlay.style.pointerEvents='none';
+  document.getElementById('pkg-modal-box').style.transform='translateY(16px)';
+  document.body.style.overflow='';
 }
-document.getElementById('pkg-modal').addEventListener('click', function(e) {
-  if (e.target === this) closePkgModal();
-});
+function submitPackage(){
+  var name=document.getElementById('pkg-name').value;
+  var email=document.getElementById('pkg-email').value;
+  var company=document.getElementById('pkg-company').value;
+  var managerEl=document.getElementById('pkg-manager');
+  var managerEmail=managerEl.value;
+  var geos=document.getElementById('pkg-geos').value;
+  var message=document.getElementById('pkg-message').value;
+  if(!managerEmail){alert('Please select an affiliate manager.');return;}
+  if(!email){alert('Please enter your email.');return;}
+  var subject=currentPackage+' Package Enquiry — '+currentFTDs+' FTDs — '+(company||name);
+  var body='Package: '+currentPackage+' ('+currentPrice+' / '+currentFTDs+' FTDs)'+
+    '\n\nName: '+name+'\nEmail: '+email+'\nCompany: '+company+
+    '\nTarget GEOs: '+geos+'\nMessage: '+message+
+    '\n\n---\nSent via MatchingVisions.ai package enquiry form';
+  window.location.href='mailto:'+managerEmail+'?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+  document.getElementById('pkg-submit').textContent='Opening email client...';
+  setTimeout(function(){closePkgModalDirect();document.getElementById('pkg-submit').textContent='Send Enquiry';},2000);
+}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closePkgModalDirect();});
 </script>
 </body>
 </html>
